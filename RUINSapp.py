@@ -557,7 +557,7 @@ def weather_explorer():
     #weather = load_data('Weather')
 
     #aspects = ['Annual', 'Monthly', 'Season']
-    #w_aspect = st.sidebar.selectbox('Temporal aggegate:', aspects)
+    #w_aspect = st.sidebar.selectbox('Temporal aggregate:', aspects)
 
     #cliproj = st.sidebar.checkbox('add climate projections',False)
 
@@ -565,7 +565,7 @@ def weather_explorer():
     stat1 = st.selectbox('Select station/group (see map in sidebar for location):', statios)
 
     aspects = ['Annual', 'Monthly']  # , 'Season']
-    w_aspect = st.selectbox('Select temporal aggegate:', aspects)
+    w_aspect = st.selectbox('Select temporal aggregate:', aspects)
 
     cliproj = st.checkbox('add climate projections (for coastal region)',False)
     if cliproj:
