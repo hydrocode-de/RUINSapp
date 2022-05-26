@@ -259,7 +259,7 @@ def main_app():
     topics = ['Warming', 'Weather Indices', 'Drought/Flood', 'Agriculture', 'Extreme Events', 'Wind Energy']
     
     # topic selector
-    topic = components.topic_selector(topic_list=topics, container=st.sidebar)
+    topic = components.legacy.topic_selector(topic_list=topics, container=st.sidebar)
     
     # TODO refactor this    
     management_explorer(topic)

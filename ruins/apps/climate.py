@@ -6,7 +6,8 @@ from plotly.express.colors import named_colorscales
 
 from ruins.core import build_config, debug_view, Config, DataManager
 from ruins.plotting import monthlyx, climate_projection_parcoords
-from ruins.components import topic_select, model_scale_select, data_select
+from ruins.components import model_scale_select, data_select
+from ruins.components.legacy import topic_select
 
 
 

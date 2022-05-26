@@ -6,7 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from ruins.plotting import plt_map, kde, yrplot_hm
-from ruins.components import data_select, topic_select
+from ruins.components import data_select
+from ruins.components.legacy import topic_select
 from ruins.core import build_config, debug_view, DataManager, Config
 from ruins.core.cache import partial_memoize
 from ruins.processing.sdm import SDM

@@ -1,5 +1,7 @@
 """
 Topic Selector
+This is a legacy component which is not used anymore (26.05.2022).
+The code is moved to the legacy submodule to keep the code in case we need it again.
 ==============
 
 """
