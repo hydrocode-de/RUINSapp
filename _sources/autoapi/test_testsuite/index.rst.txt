@@ -1,0 +1,37 @@
+:py:mod:`test_testsuite`
+========================
+
+.. py:module:: test_testsuite
+
+.. autoapi-nested-parse::
+
+   Test the test-suite itself. A dummy streamlit app, which raises an attribute
+   error should be catched by the test, although not printed to StdErr if run
+   by streamlit.
+
+   For the actual unittests, we import the real functions from the real app.
+   In the fututre, this test-suite can be extended to test the edge-cases
+   where streamlit runs into an error, that the plain function does not see.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   test_testsuite.dummy_app
+   test_testsuite.test_dummy_raises
+
+
+
+.. py:function:: dummy_app()
+
+
+.. py:function:: test_dummy_raises()
+
+

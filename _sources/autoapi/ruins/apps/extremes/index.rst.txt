@@ -1,0 +1,72 @@
+:py:mod:`ruins.apps.extremes`
+=============================
+
+.. py:module:: ruins.apps.extremes
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.extremes.user_input_defaults
+   ruins.apps.extremes.timeslice_observed_data
+   ruins.apps.extremes.create_initial_x_dataset
+   ruins.apps.extremes.create_model_runs_list
+   ruins.apps.extremes.flood_model
+   ruins.apps.extremes.concept_explainer
+   ruins.apps.extremes.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.extremes._INTRO_EN
+   ruins.apps.extremes._INTRO_DE
+
+
+.. py:data:: _INTRO_EN
+   
+
+   
+
+.. py:data:: _INTRO_DE
+   
+
+   
+
+.. py:function:: user_input_defaults()
+
+
+.. py:function:: timeslice_observed_data(dataManager: ruins.core.DataManager, t1, t2, slr)
+
+
+.. py:function:: create_initial_x_dataset(tide_data, hourly_recharge)
+
+
+.. py:function:: create_model_runs_list(all_kge_canal_par_df, kge, canal_flow_scale, canal_area, x_df, advance_pump, maxdh)
+
+
+.. py:function:: flood_model(dataManager: ruins.core.DataManager, config: ruins.core.Config, **kwargs)
+
+   Version of the flooding model in which the user can play around with the parameters.
+
+
+.. py:function:: concept_explainer(config: ruins.core.Config, **kwargs)
+
+   Show an explanation, if it was not already shown.
+
+
+
+.. py:function:: main_app(**kwargs)
+
+   
+
+

@@ -1,0 +1,26 @@
+:py:mod:`ruins.plotting.cordex_sunburst`
+========================================
+
+.. py:module:: ruins.plotting.cordex_sunburst
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.cordex_sunburst.sunburst
+
+
+
+.. py:function:: sunburst(df: pandas.DataFrame, maxdepth: int = 4, fig: plotly.graph_objects.Figure = None, width: int = 700, height: int = 700) -> plotly.graph_objects.Figure
+
+   Create a sunburst plot of all climate models included in the current
+   dataset used in RUINS. It will group them by GCM -> RCM -> RCP.
+   The size of the sun can be restricted by the maxdepth argument.
+
+

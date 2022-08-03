@@ -1,0 +1,22 @@
+:py:mod:`ruins.plotting.kde`
+============================
+
+.. py:module:: ruins.plotting.kde
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.kde.kde
+
+
+
+.. py:function:: kde(data, cmdata='none', split_ts=1, cplot=True, eq_period=True)
+
+

@@ -1,0 +1,43 @@
+:py:mod:`test_weather`
+======================
+
+.. py:module:: test_weather
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   test_weather.test_climate_indices
+   test_weather.test_climate_indi
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   test_weather.config
+
+
+.. py:data:: config
+   
+
+   
+
+.. py:function:: test_climate_indices()
+
+   Test only climate indices
+
+
+.. py:function:: test_climate_indi()
+
+   Test climate indi function
+
+

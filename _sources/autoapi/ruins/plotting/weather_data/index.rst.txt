@@ -1,0 +1,29 @@
+:py:mod:`ruins.plotting.weather_data`
+=====================================
+
+.. py:module:: ruins.plotting.weather_data
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.weather_data.yrplot_hm
+   ruins.plotting.weather_data.monthlyx
+
+
+
+.. py:function:: yrplot_hm(sr, ref=[1980, 2000], ag='sum', qa=0.95, cbar_title='Temperature anomaly (K)', cmx='coolwarm', cmxeq=True, li=False)
+
+   @deprecated - use stripes_heatmap.yrplot_hm instead
+
+
+
+.. py:function:: monthlyx(dy, dyx=1, ylab='T (°C)', clab1='Monthly Mean in Year', clab2='Monthly Max in Year', pls='cividis_r') -> matplotlib.pyplot.Figure
+
+

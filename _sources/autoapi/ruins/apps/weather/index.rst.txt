@@ -1,0 +1,117 @@
+:py:mod:`ruins.apps.weather`
+============================
+
+.. py:module:: ruins.apps.weather
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.weather.climate_indices
+   ruins.apps.weather._reduce_weather_data
+   ruins.apps.weather.climate_data_selector
+   ruins.apps.weather.climate_plots
+   ruins.apps.weather.warming_data_plotter
+   ruins.apps.weather.inject_cordex_overview
+   ruins.apps.weather.quick_access_buttons
+   ruins.apps.weather.weather_stage
+   ruins.apps.weather.climate_stage
+   ruins.apps.weather.indices_stage
+   ruins.apps.weather.transition_page
+   ruins.apps.weather.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.weather._TRANSLATE_DE_CLIMATE
+   ruins.apps.weather._TRANSLATE_EN_CLIMATE
+   ruins.apps.weather._TRANSLATE_DE_INDICES
+   ruins.apps.weather._TRANSLATE_EN_INDICES
+
+
+.. py:data:: _TRANSLATE_DE_CLIMATE
+   
+
+   
+
+.. py:data:: _TRANSLATE_EN_CLIMATE
+   
+
+   
+
+.. py:data:: _TRANSLATE_DE_INDICES
+   
+
+   
+
+.. py:data:: _TRANSLATE_EN_INDICES
+   
+
+   
+
+.. py:function:: climate_indices(dataManager: ruins.core.DataManager, config: ruins.core.Config, container=st, key: int = 1, **kwargs)
+
+
+.. py:function:: _reduce_weather_data(dataManager: ruins.core.DataManager, name: str, variable: str, time: str, station: str = None, _filter: dict = None) -> pandas.DataFrame
+
+
+.. py:function:: climate_data_selector(dataManager: ruins.core.DataManager, config: ruins.core.Config, it: int = 0, variable: str = 'T', expander_container=st.sidebar, layout: str = 'columns', **kwargs)
+
+   Handles the selection and display of one paralell coordinates plot
+
+
+.. py:function:: climate_plots(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar)
+
+   
+
+
+.. py:function:: warming_data_plotter(dataManager: ruins.core.DataManager, config: ruins.core.Config)
+
+
+.. py:function:: inject_cordex_overview(dataManager: ruins.core.DataManager, expanded: bool = False)
+
+
+.. py:function:: quick_access_buttons(config: ruins.core.Config, container=st.sidebar)
+
+   Add quick access button to skip parts of the Weather explorer
+
+
+.. py:function:: weather_stage(dataManager: ruins.core.DataManager, config: ruins.core.Config, data_expander=st.sidebar)
+
+
+.. py:function:: climate_stage(dataManager: ruins.core.DataManager, config: ruins.core.Config)
+
+
+.. py:function:: indices_stage(dataManager: ruins.core.DataManager, config: ruins.core.Config, data_expander=st.sidebar)
+
+
+.. py:function:: transition_page(dataManager: ruins.core.DataManager, config: ruins.core.Config) -> None
+
+   This Transition is shown when the user switches from weather explorer to
+   climate projections or further to climate indices, without using the quick access buttons.
+   The page can be used to present a primer how the two topics are related.
+
+
+.. py:function:: main_app(**kwargs)
+
+   Describe the params in kwargs here
+
+   The main app has three 'stages':
+
+     * learning about weather
+     * learning about climate
+     * condensing info into climate indices
+
+
+
+

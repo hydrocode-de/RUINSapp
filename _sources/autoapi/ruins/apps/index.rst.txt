@@ -1,0 +1,21 @@
+:py:mod:`ruins.apps`
+====================
+
+.. py:module:: ruins.apps
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bubbles/index.rst
+   extremes/index.rst
+   landuse/index.rst
+   sunburst/index.rst
+   temperature_shift/index.rst
+   uncertainty/index.rst
+   weather/index.rst
+
+

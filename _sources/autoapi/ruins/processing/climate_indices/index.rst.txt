@@ -1,0 +1,67 @@
+:py:mod:`ruins.processing.climate_indices`
+==========================================
+
+.. py:module:: ruins.processing.climate_indices
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.climate_indices.climate_index_agg
+   ruins.processing.climate_indices.calculate_climate_indices
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.climate_indices.INDICES
+
+
+.. py:data:: INDICES
+   
+
+   
+
+.. py:function:: climate_index_agg(ts, index)
+
+   Aggregate the index days based on the available INDICES
+
+
+.. py:function:: calculate_climate_indices(_dataManager: ruins.core.DataManager, station: str, variable: str, ci: str, rolling_windows=(10, 5), rolling_center=True, rcps=('rcp26', 'rcp45', 'rcp85')) -> pandas.DataFrame
+
+   Calculates all relevant climate indices for the given climate data, as configured in the DataManager.
+   The procedure will return a pandas DataFrame with aggregated index information for the weather data.
+   For each of the available RCP scenarios, the indices are calculated as well.
+   By default, for each scenario and the weather data, a rolling mean is calculated
+
+   :param _dataManager: DataManager instance containing the 'weather' and 'climate' data
+   :type _dataManager: ruins.core.DataManager
+   :param station: Station name for filtering weather data. Has to exist as data variable
+                   in the weather netCDF
+   :type station: str
+   :param variable: Variable name for filtering. Has to exist as dimension value in both,
+                    the weather and climate netCDF
+   :type variable: str
+   :param ci: Index name. Can be any key of ruins.processing.climate_indices.INDICES
+   :type ci: str
+   :param rolling_windows: The window sizes for weather (0) and climate (1) rolling means
+   :type rolling_windows: Tuple[int, int]
+   :param rolling_center: If True (default), the rollwing window center will be used as value
+   :type rolling_center: bool
+   :param rcps: Short names of the RCP scenarios to include. Usually only
+                ('rcp26', 'rcp45', 'rcp85') are available.
+   :type rcps: List[str]
+
+   :returns: **data** -- DataFrame with all calcualted indices and the year as index
+   :rtype: pd.DataFrame
+
+

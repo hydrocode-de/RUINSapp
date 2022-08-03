@@ -1,0 +1,47 @@
+:py:mod:`ruins.plotting.dists`
+==============================
+
+.. py:module:: ruins.plotting.dists
+
+.. autoapi-nested-parse::
+
+   Distribution plots as used by the uncertainty application.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.dists.distribution_plot
+
+
+
+.. py:function:: distribution_plot(*events: List[dict], fig: plotly.graph_objects.Figure = None, **kwargs) -> plotly.graph_objects.Figure
+
+   Concept plot for PDFs of different events.
+   This plot illustrates the interdependece of Kngihtian uncertainty
+   and risk for a set of events. At least one event has to be passed.
+
+   :param events: Each event is represented by a dict, that has to contain the following keys:
+                  outcomes: List[Tuple[float, float]]
+                      The mu and std of each outcome for this event
+                  Additionally, the following keys are optional:
+                  dist : str
+                      The distribution of the event. Default is 'norm'.
+                  coloscale : str
+                      The colorscale used to color the events. Default is a
+                      cycle through ['Greens', 'Reds', 'Blues']
+                  name : str
+                      Name for this event
+   :type events: List
+
+   :returns: **fig** -- Result plot
+   :rtype: go.Figure
+
+

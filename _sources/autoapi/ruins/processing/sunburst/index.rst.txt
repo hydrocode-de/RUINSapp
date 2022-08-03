@@ -1,0 +1,24 @@
+:py:mod:`ruins.processing.sunburst`
+===================================
+
+.. py:module:: ruins.processing.sunburst
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.sunburst.ordered_sunburst_data
+
+
+
+.. py:function:: ordered_sunburst_data(dataManager: ruins.core.DataManager, order=['GCM', 'RCM', 'RCP']) -> pandas.DataFrame
+
+   Order the info about GCM / RCM /RCP usage amounts
+
+

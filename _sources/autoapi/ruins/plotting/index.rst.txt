@@ -1,0 +1,200 @@
+:py:mod:`ruins.plotting`
+========================
+
+.. py:module:: ruins.plotting
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bubble_plot/index.rst
+   climate_data/index.rst
+   climate_indices/index.rst
+   climate_parcoords/index.rst
+   cordex_sunburst/index.rst
+   distribution_shift/index.rst
+   dists/index.rst
+   floodmodel/index.rst
+   kde/index.rst
+   maps/index.rst
+   pdsi/index.rst
+   stripes_heatmap/index.rst
+   weather_data/index.rst
+   windpower/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.plt_map
+   ruins.plotting.kde
+   ruins.plotting.monthlyx
+   ruins.plotting.yrplot_hm
+   ruins.plotting.climate_projection_parcoords
+   ruins.plotting.distribution_plot
+   ruins.plotting.plot_climate_indices
+   ruins.plotting.sunburst
+   ruins.plotting.plot_extreme_pdf
+   ruins.plotting.pdsi_plot
+   ruins.plotting.tree_plot
+   ruins.plotting.variable_plot
+   ruins.plotting.windpower_distplot
+   ruins.plotting.ternary_provision_plot
+   ruins.plotting.management_scatter_plot
+
+
+
+.. py:function:: plt_map(dataManager: ruins.core.DataManager, sel='all', cm='none') -> plotly.graph_objs.Figure
+
+
+.. py:function:: kde(data, cmdata='none', split_ts=1, cplot=True, eq_period=True)
+
+
+.. py:function:: monthlyx(dy, dyx=1, ylab='T (°C)', clab1='Monthly Mean in Year', clab2='Monthly Max in Year', pls='cividis_r') -> matplotlib.pyplot.Figure
+
+
+.. py:function:: yrplot_hm(sr, ref=[1980, 2000], ag='sum', qa=0.95, cbar_title='Temperature anomaly (K)', cmx='coolwarm', cmxeq=True, li=False, lang='en', backend='plotly')
+
+   Yearly stripes plot.
+   Creates a monthly resloved stripes plot for each year in the data.
+   The data is plotted as a heatmap showing the Temperature anomaly to the passed reference period
+   based on the adjustable quartile value.
+
+   :param sr: Input data originating from one ground station
+   :type sr: pandas.DataFrame
+   :param ref: Reference period to calculate the anomaly.
+   :type ref: Tuple[int, int]
+   :param ag: Reduction function to use. Can be used to calculate
+              the temperature anomaly in 'sum', 'min', 'max' or 'mean'
+   :type ag: str
+   :param qa: Quartile to use. Has to be between 0 and 1.
+   :type qa: float
+   :param cbar_title: Optional title for the colorbar
+   :type cbar_title: str
+   :param cmx: Colorbar scale. Can be any string accepted by the plotting backend.
+   :type cmx: str
+   :param cmxeq: If True (default), the colorbar range is calculated for
+                 the full dataset.
+   :type cmxeq: bool
+   :param lang: Can be either ``'en'`` or ``'de'`. The language used for axis labels.
+   :type lang: str
+   :param backend: Can be either ``matplotlib`` or ``plotly``.
+                   The plotting backend to use.
+   :type backend: str
+
+
+.. py:function:: climate_projection_parcoords(data: pandas.DataFrame, fig: plotly.graph_objects.Figure = None, align_range: bool = True, colorscale='electric', row: int = 1, col: int = 1, lang='en')
+
+   Parallel coordinates plot for climate projections.
+   This plot uses each month in the year as a coordinate dimension. By sorting the
+   dimensions into the correct order, the cycle of annual temperature aggregates is preserved,
+   while the full dataset can easily be compared.
+
+   :param data: Dataframe with the data to plot. The DataFrame has to be indexed by a
+                Datetime Index and does accept more than one column (ground station, RCP scenario or grid cell).
+   :type data: pandas.DataFrame
+   :param fig: If not None, the given figure will be used to plot the data.
+               Note, that subfigures need to use the ``'domain'`` type.
+   :type fig: plotly.graph_objects.Figure
+   :param align_range: If True (default) each dimension (aka month) will use the same value range, to
+                       focus the differences between the months. If False, the range will be adapted
+                       to span from min to max for each dimension, putting more focus on the differences
+                       between the years (decades).
+   :type align_range: bool
+   :param colorscale: Name identifier of teh colorscale. See plotly to learn about available options.
+   :type colorscale: str
+   :param row: If figure is not None, row and column can be used to plot into the
+               correct subplot.
+   :type row: int
+   :param col: If figure is not None, row and column can be used to plot into the
+               correct subplot.
+   :type col: int
+   :param lang: Can either be ``'en'`` or ``'de'``. As of now, the language does not
+                have any effect.
+   :type lang: str
+
+
+.. py:function:: distribution_plot(*events: List[dict], fig: plotly.graph_objects.Figure = None, **kwargs) -> plotly.graph_objects.Figure
+
+   Concept plot for PDFs of different events.
+   This plot illustrates the interdependece of Kngihtian uncertainty
+   and risk for a set of events. At least one event has to be passed.
+
+   :param events: Each event is represented by a dict, that has to contain the following keys:
+                  outcomes: List[Tuple[float, float]]
+                      The mu and std of each outcome for this event
+                  Additionally, the following keys are optional:
+                  dist : str
+                      The distribution of the event. Default is 'norm'.
+                  coloscale : str
+                      The colorscale used to color the events. Default is a
+                      cycle through ['Greens', 'Reds', 'Blues']
+                  name : str
+                      Name for this event
+   :type events: List
+
+   :returns: **fig** -- Result plot
+   :rtype: go.Figure
+
+
+.. py:function:: plot_climate_indices(data: pandas.DataFrame, rcps=('rcp26', 'rcp45', 'rcp85'), fig: plotly.graph_objects.Figure = None) -> plotly.graph_objects.Figure
+
+   Generate a climate indices plot.
+   Refer to :func:`ruins.processing.calculate_climate_indices` to learn about the structure
+   needed for the DataFrame.
+
+
+.. py:function:: sunburst(df: pandas.DataFrame, maxdepth: int = 4, fig: plotly.graph_objects.Figure = None, width: int = 700, height: int = 700) -> plotly.graph_objects.Figure
+
+   Create a sunburst plot of all climate models included in the current
+   dataset used in RUINS. It will group them by GCM -> RCM -> RCP.
+   The size of the sun can be restricted by the maxdepth argument.
+
+
+.. py:function:: plot_extreme_pdf(mus: float, stds: float, fig: plotly.graph_objects.Figure = None, border_colors=BORDERS_COLORS, border_names=BORDER_NAMES, x_range=(0, 25), x_res: int = 100, y_res: int = 25, label_margin_scale=1.1) -> plotly.graph_objects.Figure
+
+   Temperature PDF shift plot.
+   This function returns a plotly figure containing a heavily styled plotly PDF plot.
+   It is controlled by passing the PDF moment(s) to the plot. If called with only one
+   location and scale, the styled PDF is returned.
+   If two locations and scales are passed, but both scales are the same, the PDF is
+   only shifted by location and the original PDF is sketched. In case the scales differ,
+   the new PDF will be correctly annotated.
+
+
+.. py:function:: pdsi_plot(data: pandas.DataFrame, colorscale: str = 'RdBu', fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1, **kwargs) -> plotly.graph_objects.Figure
+
+   Heatmap plot for Palmer drought severity index
+
+
+.. py:function:: tree_plot(data: pandas.DataFrame, heights=[1, 0.3, 0], fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1) -> plotly.graph_objects.Figure
+
+
+.. py:function:: variable_plot(climate: xarray.Dataset, variable: str, rcp: str = 'rcp85', color='green', bgcolor='lightgreen', fig: plotly.graph_objects.Figure = None, col: int = 1, row: int = 1) -> plotly.graph_objects.Figure
+
+   Plot one of the climate model predicted variables, grouped by RCP scenario.
+   If rcp is None, the grouping will not be applied.
+
+
+.. py:function:: windpower_distplot(actions: List[pandas.DataFrame], names: List[str] = None, fig: plotly.graph_objects.Figure = None, fill: str = None, showlegend: Union[bool, List[bool]] = False, colors: Union[str, List[str]] = None, col: int = 1, row: int = 1) -> plotly.graph_objects.Figure
+
+   Plot the actions projected to climate models
+
+
+.. py:function:: ternary_provision_plot(dataManager: ruins.core.DataManager, filter_: dict = {}, turbines: List[str] = ['e53', 'e115', 'e126'], colorscale: str = 'Cividis', showscale: bool = True) -> plotly.graph_objects.Figure
+
+   Make a ternary plot of the three turbines shares on the axes and the provisioned Windpower as contours
+
+
+.. py:function:: management_scatter_plot(data: pandas.DataFrame = None, scenarios: List[Tuple[float, float, float]] = None, x: str = 'ce', y: str = 'up', fig: plotly.graph_objects.Figure = None) -> plotly.graph_objects.Figure
+
+

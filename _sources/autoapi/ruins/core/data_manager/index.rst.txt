@@ -1,0 +1,217 @@
+:py:mod:`ruins.core.data_manager`
+=================================
+
+.. py:module:: ruins.core.data_manager
+
+.. autoapi-nested-parse::
+
+   Data Manager
+   ============
+
+   The DataManager is a wrapper around all data sources used by RUINSapp.
+   It can be configures by any :class:`Config <ruins.core.config.Config>` class
+   and organizes or caches all data sources using a
+   :class:`DataSource <ruins.core.data_manager.DataSource>` inherited class.
+   This makes the read and filter interface available on all sources, no matter
+   where they are stored.
+   Using the :class:`Config <ruins.core.config.Config>` to instantiate a data
+   manager can in principle enabled different profiles, or even an interaction
+   with the frontend, although not implemented nor desired at the current stage.
+
+   .. rubric:: Example
+
+   .. code-block:: python
+
+       from ruins import core
+
+       # create default config
+       conf = core.Config()
+
+       # create a data manager from this
+       dm = core.DataManager(**conf)
+
+   Of course, the data manager can also be used without the config, ie. to open it
+   in debug mode:
+
+   .. code-block:: python
+
+       # using conf with conf.debug=False and overwrite it
+       dm = core.DataManager(**conf, debug=True)
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.data_manager.DataSource
+   ruins.core.data_manager.FileSource
+   ruins.core.data_manager.HDF5Source
+   ruins.core.data_manager.CSVSource
+   ruins.core.data_manager.DATSource
+   ruins.core.data_manager.DataManager
+
+
+
+
+.. py:class:: DataSource(**kwargs)
+
+   Bases: :py:obj:`abc.ABC`
+
+   Abstract base class for data sources. This provides the common interface
+   for data sources of different source types (like file, URL, database).
+
+   .. py:method:: read()
+      :abstractmethod:
+
+
+   .. py:method:: filter(**kwargs)
+      :abstractmethod:
+
+
+
+.. py:class:: FileSource(path: str, cache: bool = True, hot_load=False, **kwargs)
+
+   Bases: :py:obj:`DataSource`, :py:obj:`abc.ABC`
+
+   Abstract base class for file sources. This provides the common interface
+   for every data source that is based on a file.
+
+   .. py:method:: _load_source()
+      :abstractmethod:
+
+      Method to load the actual source on the disk
+
+
+   .. py:method:: read()
+
+
+   .. py:method:: filter()
+
+
+
+.. py:class:: HDF5Source(path: str, cache: bool = True, hot_load=False, **kwargs)
+
+   Bases: :py:obj:`FileSource`
+
+   HDF5 file sources. This class is used to load HDF5 files.
+
+   .. py:method:: _load_source() -> xarray.Dataset
+
+      Method to load the actual source on the disk
+
+
+   .. py:method:: read() -> xarray.Dataset
+
+
+
+.. py:class:: CSVSource(**kwargs)
+
+   Bases: :py:obj:`FileSource`
+
+   CSV file source. This class is used to load CSV files.
+
+   .. py:method:: _load_source()
+
+      Method to load the actual source on the disk
+
+
+
+.. py:class:: DATSource(**kwargs)
+
+   Bases: :py:obj:`FileSource`
+
+   DAT file source. This class is used to load .dat files
+
+   .. py:method:: _load_source()
+
+      Method to load the actual source on the disk
+
+
+
+.. py:class:: DataManager(datapath: str = None, cache: bool = True, hot_load=False, debug: bool = False, **kwargs)
+
+   Bases: :py:obj:`collections.abc.Mapping`
+
+   Main class for accessing different data sources.
+
+   The DataManager holds and manages all data sources. The default behavior is
+   to scan the specified path for files of known file extension and cache them
+   in memory.
+
+   :param datapath: A location where the data is stored. The class will load all sources
+                    there and make them accessible through DataSource classes.
+   :type datapath: str
+   :param cache: Will be passed to the DataSource classes. It true, the source will only
+                 be read once and then stored in memory until the DataManager gets
+                 deconstructed.
+   :type cache: bool
+   :param include_mimes: A dictionary of file extensions and their corresponding DataSource.
+                         If something is not listed, the DataManager will ignore the file type.
+                         The include_mimes can be overwritten by passing filenames directly.
+   :type include_mimes: dict
+
+   .. py:method:: read(name_or_file: str)
+
+
+   .. py:method:: from_config(datapath: str = None, cache: bool = True, hot_load: bool = False, debug: bool = False, **kwargs) -> None
+
+      Initialize the DataManager from a :class:`Config <ruins.core.Config>` object.
+
+
+   .. py:method:: datapath() -> str
+      :property:
+
+
+   .. py:method:: datasources() -> List[DataSource]
+      :property:
+
+
+   .. py:method:: _infer_from_folder() -> None
+
+      Read all files from the datapath as specified on instantiation.
+      Calls :func:`add_source` on each file.
+
+
+   .. py:method:: add_source(path: str, not_exists: str = 'raise') -> None
+
+      Add a file as data source to the DataManager.
+      Only if the file has an allowed file extension, it will be managed.
+      Files of same name will be overwritten, this is also true if they had
+      different extensions.
+
+
+
+   .. py:method:: resolve_class_name(cls_name: str) -> Type[DataSource]
+
+
+   .. py:method:: __len__()
+
+      Return the number of managed data sources
+
+
+   .. py:method:: __iter__()
+
+      Iterate over all dataset names
+
+
+   .. py:method:: __getitem__(key: str) -> DataSource
+
+      Return the requested datasource
+
+
+   .. py:method:: __repr__()
+
+      Return repr(self).
+
+
+   .. py:method:: __str__()
+
+      Return str(self).
+
+
+

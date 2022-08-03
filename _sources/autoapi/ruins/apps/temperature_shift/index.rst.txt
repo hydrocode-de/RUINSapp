@@ -1,0 +1,65 @@
+:py:mod:`ruins.apps.temperature_shift`
+======================================
+
+.. py:module:: ruins.apps.temperature_shift
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.temperature_shift.explainer
+   ruins.apps.temperature_shift.temperature_dist_intro
+   ruins.apps.temperature_shift.increase_temperatures
+   ruins.apps.temperature_shift.full_temperature_shift
+   ruins.apps.temperature_shift.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.temperature_shift._TRANSLATE_DE
+   ruins.apps.temperature_shift._TRANSLATE_EN
+
+
+.. py:data:: _TRANSLATE_DE
+   
+
+   
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:function:: explainer(config: ruins.core.Config) -> None
+
+   Introduce the concept
+
+
+.. py:function:: temperature_dist_intro(config: ruins.core.Config) -> None
+
+   Introduce temperature distributions
+
+
+.. py:function:: increase_temperatures(config: ruins.core.Config) -> None
+
+   Increase the temperature on earth
+
+
+.. py:function:: full_temperature_shift(config: ruins.core.Config) -> None
+
+   Full application with all controls
+
+
+.. py:function:: main_app(**kwargs)
+
+

@@ -1,0 +1,39 @@
+:py:mod:`ruins.core.cache`
+==========================
+
+.. py:module:: ruins.core.cache
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.cache._hashargs
+   ruins.core.cache.partial_memoize
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.cache.LOCAL
+
+
+.. py:data:: LOCAL
+   
+
+   
+
+.. py:function:: _hashargs(fname, argnames)
+
+
+.. py:function:: partial_memoize(hash_names: List[str], store: str = 'local')
+
+

@@ -1,0 +1,26 @@
+:py:mod:`ruins.processing`
+==========================
+
+.. py:module:: ruins.processing
+
+.. autoapi-nested-parse::
+
+   The processing module collects all the needed functionality for data processing
+   that has to happen live behind the scenes of a RUINS application.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   climate_indices/index.rst
+   drain_cap/index.rst
+   pdsi/index.rst
+   sdm/index.rst
+   sunburst/index.rst
+   windpower/index.rst
+
+

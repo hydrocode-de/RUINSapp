@@ -1,0 +1,26 @@
+:py:mod:`ruins.plotting.climate_indices`
+========================================
+
+.. py:module:: ruins.plotting.climate_indices
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.climate_indices.plot_climate_indices
+
+
+
+.. py:function:: plot_climate_indices(data: pandas.DataFrame, rcps=('rcp26', 'rcp45', 'rcp85'), fig: plotly.graph_objects.Figure = None) -> plotly.graph_objects.Figure
+
+   Generate a climate indices plot.
+   Refer to :func:`ruins.processing.calculate_climate_indices` to learn about the structure
+   needed for the DataFrame.
+
+

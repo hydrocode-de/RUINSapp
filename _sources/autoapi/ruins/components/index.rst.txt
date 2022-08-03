@@ -1,0 +1,16 @@
+:py:mod:`ruins.components`
+==========================
+
+.. py:module:: ruins.components
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   data_select/index.rst
+   model_scale_select/index.rst
+
+

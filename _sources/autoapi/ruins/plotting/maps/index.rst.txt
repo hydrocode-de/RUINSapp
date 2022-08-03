@@ -1,0 +1,22 @@
+:py:mod:`ruins.plotting.maps`
+=============================
+
+.. py:module:: ruins.plotting.maps
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.maps.plt_map
+
+
+
+.. py:function:: plt_map(dataManager: ruins.core.DataManager, sel='all', cm='none') -> plotly.graph_objs.Figure
+
+

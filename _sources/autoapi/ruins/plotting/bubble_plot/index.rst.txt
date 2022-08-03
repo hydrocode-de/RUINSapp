@@ -1,0 +1,22 @@
+:py:mod:`ruins.plotting.bubble_plot`
+====================================
+
+.. py:module:: ruins.plotting.bubble_plot
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.bubble_plot.draw_bubbles
+
+
+
+.. py:function:: draw_bubbles(a, selectors=['RCP', 'GCM'])
+
+

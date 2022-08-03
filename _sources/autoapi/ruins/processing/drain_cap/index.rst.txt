@@ -1,0 +1,79 @@
+:py:mod:`ruins.processing.drain_cap`
+====================================
+
+.. py:module:: ruins.processing.drain_cap
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.drain_cap.drain_cap
+   ruins.processing.drain_cap.storage_model
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.drain_cap.x
+   ruins.processing.drain_cap.y
+   ruins.processing.drain_cap.pumpcap_fit
+
+
+.. py:data:: x
+   
+
+   
+
+.. py:data:: y
+   
+
+   
+
+.. py:data:: pumpcap_fit
+   
+
+   
+
+.. py:function:: drain_cap(h_tide: numpy.ndarray, h_store: numpy.ndarray, h_min: int = -2000, pump_par=pumpcap_fit, channel_par: Tuple[float, float] = [1.016, 2572.0], dh: int = 50, wind_safe: int = 0, gradmax: int = 4000)
+
+   Find sthe maximal flow rate in a system with a pump and a canal.
+   The flow through the pump is determined by the gradient from inner to outer water level and a pump function.
+   The flow through the canal is determined by the gradient from the canal water level to the pump inner water level and a flow function.
+   The inner water level is unknown and estimated within this function, but a lower limit can be set.
+
+   :param h_tide: the outer water level at the pump
+   :type h_tide: np.ndarray
+   :param h_store: the canal water level
+   :type h_store: np.ndarray
+   :param h_min: the lower boundary of the inner water level
+   :type h_min: int
+   :param pump_par: parameters of the pump function
+   :type pump_par: np.ndarray
+   :param channel_par: parameters of the canal flow function
+   :type channel_par: Tuple[float, float]
+   :param dh: increment of inner water level estimation
+   :type dh: int
+   :param wind_safe: gradient from canal to inner water level, which is induced by wind and therefore not contributing to flow
+   :type wind_safe: int
+   :param gradmax: maximum gradient from inner to outer water level, at which pumps shall run
+   :type gradmax: int
+
+   :returns: * **a_channel** (*np.ndarry*) -- the actual maximum flow through canal and pump
+             * **h_min** (*float*) -- the estimated inner water level
+             * **q_pump** (*float*) -- the maximum flow, which could be pumped if not limited by canals
+
+
+.. py:function:: storage_model(x, z, storage=0, h_store=-1400, canal_area=4, advance_pump=0, maxdh=6000)
+
+   Storage model used for the Krummhörn region
+
+

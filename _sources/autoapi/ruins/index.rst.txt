@@ -1,0 +1,27 @@
+:py:mod:`ruins`
+===============
+
+.. py:module:: ruins
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   apps/index.rst
+   components/index.rst
+   core/index.rst
+   plotting/index.rst
+   processing/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   :annotation: = 0.19.0
+
+   
+

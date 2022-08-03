@@ -1,0 +1,56 @@
+:py:mod:`ruins.apps.bubbles`
+============================
+
+.. py:module:: ruins.apps.bubbles
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.bubbles.concept_explainer
+   ruins.apps.bubbles.show_bubbles
+   ruins.apps.bubbles.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.bubbles._TRANSLATE_EN
+   ruins.apps.bubbles._TRANSLATE_DE
+
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:data:: _TRANSLATE_DE
+   
+
+   
+
+.. py:function:: concept_explainer(config: ruins.core.Config, **kwargs)
+
+   Show an explanation, if it was not already shown.
+
+
+
+.. py:function:: show_bubbles(dataManager: ruins.core.DataManager, config: ruins.core.Config)
+
+   Shows the bubble plot.
+
+
+.. py:function:: main_app(**kwargs)
+
+   
+
+

@@ -1,0 +1,24 @@
+:py:mod:`util`
+==============
+
+.. py:module:: util
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   util.get_test_config
+
+
+
+.. py:function:: get_test_config() -> ruins.core.Config
+
+   Get a test config
+
+

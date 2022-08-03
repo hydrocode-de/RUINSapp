@@ -1,0 +1,28 @@
+:py:mod:`ruins.plotting.pdsi`
+=============================
+
+.. py:module:: ruins.plotting.pdsi
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.pdsi.pdsi_plot
+   ruins.plotting.pdsi.tree_plot
+
+
+
+.. py:function:: pdsi_plot(data: pandas.DataFrame, colorscale: str = 'RdBu', fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1, **kwargs) -> plotly.graph_objects.Figure
+
+   Heatmap plot for Palmer drought severity index
+
+
+.. py:function:: tree_plot(data: pandas.DataFrame, heights=[1, 0.3, 0], fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1) -> plotly.graph_objects.Figure
+
+

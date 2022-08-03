@@ -1,0 +1,43 @@
+:py:mod:`test_datamanager`
+==========================
+
+.. py:module:: test_datamanager
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   test_datamanager.test_default_manager
+   test_datamanager.test_weather_dataset
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   test_datamanager.NO_LFS
+
+
+.. py:data:: NO_LFS
+   
+
+   
+
+.. py:function:: test_default_manager()
+
+   Instantiate the default data manager
+
+
+.. py:function:: test_weather_dataset()
+
+   Test the weather dataset
+
+

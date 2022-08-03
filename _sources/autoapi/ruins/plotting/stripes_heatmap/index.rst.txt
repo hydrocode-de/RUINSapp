@@ -1,0 +1,75 @@
+:py:mod:`ruins.plotting.stripes_heatmap`
+========================================
+
+.. py:module:: ruins.plotting.stripes_heatmap
+
+.. autoapi-nested-parse::
+
+   This module implements a stripes plot function that can create annual and monthly
+   stripes plots from given climate and weather data. There is a matplotlib and a
+   plotly version. The streamlit app uses the plotly version by default.
+   The plotly plot is interactive and available in a German and English version, the
+   matplotlib version is static and only available in English.
+
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.stripes_heatmap.yrplot_data
+   ruins.plotting.stripes_heatmap._yrplot_matplotlib
+   ruins.plotting.stripes_heatmap._yrplot_plotly
+   ruins.plotting.stripes_heatmap.yrplot_hm
+
+
+
+.. py:function:: yrplot_data(sr, ref=[1980, 2000], ag='sum', qa=0.95, cmxeq=True) -> Tuple[pandas.DataFrame, float, float]
+
+   Prepare the given data for monthly and annual stripes to be plotted in a heatmap.
+   The data is grouped and the limits for plotting are returned, based on the quantile given.
+
+
+
+.. py:function:: _yrplot_matplotlib(sr, ref=[1980, 2000], ag='sum', qa=0.95, cbar_title='Temperature anomaly (K)', cmx='coolwarm', cmxeq=True, li=False)
+
+
+.. py:function:: _yrplot_plotly(sr, ref=[1980, 2000], ag='sum', qa=0.95, cbar_title='Temperature anomaly (K)', cmx='coolwarm', cmxeq=True, li=False, lang='en')
+
+
+.. py:function:: yrplot_hm(sr, ref=[1980, 2000], ag='sum', qa=0.95, cbar_title='Temperature anomaly (K)', cmx='coolwarm', cmxeq=True, li=False, lang='en', backend='plotly')
+
+   Yearly stripes plot.
+   Creates a monthly resloved stripes plot for each year in the data.
+   The data is plotted as a heatmap showing the Temperature anomaly to the passed reference period
+   based on the adjustable quartile value.
+
+   :param sr: Input data originating from one ground station
+   :type sr: pandas.DataFrame
+   :param ref: Reference period to calculate the anomaly.
+   :type ref: Tuple[int, int]
+   :param ag: Reduction function to use. Can be used to calculate
+              the temperature anomaly in 'sum', 'min', 'max' or 'mean'
+   :type ag: str
+   :param qa: Quartile to use. Has to be between 0 and 1.
+   :type qa: float
+   :param cbar_title: Optional title for the colorbar
+   :type cbar_title: str
+   :param cmx: Colorbar scale. Can be any string accepted by the plotting backend.
+   :type cmx: str
+   :param cmxeq: If True (default), the colorbar range is calculated for
+                 the full dataset.
+   :type cmxeq: bool
+   :param lang: Can be either ``'en'`` or ``'de'`. The language used for axis labels.
+   :type lang: str
+   :param backend: Can be either ``matplotlib`` or ``plotly``.
+                   The plotting backend to use.
+   :type backend: str
+
+

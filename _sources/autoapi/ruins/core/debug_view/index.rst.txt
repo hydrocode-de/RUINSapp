@@ -1,0 +1,25 @@
+:py:mod:`ruins.core.debug_view`
+===============================
+
+.. py:module:: ruins.core.debug_view
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.debug_view.debug_view
+
+
+
+.. py:function:: debug_view(dataManager: ruins.core.DataManager, config: ruins.core.Config, debug_name: str = None) -> None
+
+   Set Config['debug'] = 'True' to display debug view which
+   shows current Config and dataManager parameters.
+
+

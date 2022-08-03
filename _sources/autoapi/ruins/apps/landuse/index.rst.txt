@@ -1,0 +1,134 @@
+:py:mod:`ruins.apps.landuse`
+============================
+
+.. py:module:: ruins.apps.landuse
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.landuse.concept_explainer
+   ruins.apps.landuse.quick_access
+   ruins.apps.landuse.cached_pdsi_plot
+   ruins.apps.landuse.drought_index
+   ruins.apps.landuse.crop_models
+   ruins.apps.landuse.windspeed_rcp_plots
+   ruins.apps.landuse.upscaled_data_filter
+   ruins.apps.landuse.upscale_plots
+   ruins.apps.landuse.management_plot
+   ruins.apps.landuse.upscale_ternary_plot
+   ruins.apps.landuse.wind_turbine_dimensions
+   ruins.apps.landuse.upscale_windpower
+   ruins.apps.landuse.windpower
+   ruins.apps.landuse.windpower_story
+   ruins.apps.landuse.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.landuse._TRANSLATE_EN
+   ruins.apps.landuse._TRANSLATE_WIND_EN
+   ruins.apps.landuse._TRANSLATE_DE
+   ruins.apps.landuse._TRANSLATE_WIND_DE
+
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:data:: _TRANSLATE_WIND_EN
+   
+
+   
+
+.. py:data:: _TRANSLATE_DE
+   
+
+   
+
+.. py:data:: _TRANSLATE_WIND_DE
+   
+
+   
+
+.. py:function:: concept_explainer(config: ruins.core.Config, **kwargs)
+
+   Show an explanation, if it was not already shown.
+
+
+
+.. py:function:: quick_access(config: ruins.core.Config, container=st.sidebar) -> None
+
+   Add quick access buttons
+
+
+.. py:function:: cached_pdsi_plot(_data, group_by: List[str] = None, add_tree: bool = True, lang='de')
+
+
+.. py:function:: drought_index(dataManager: ruins.core.DataManager, config: ruins.core.Config) -> None
+
+   Loading Palmer drought severity index data for the region
+
+
+.. py:function:: crop_models(dataManager: ruins.core.DataManager, config: ruins.core.Config) -> None
+
+   Load and visualize crop model yields
+
+
+.. py:function:: windspeed_rcp_plots(dataManager: ruins.core.DataManager, config: ruins.core.Config, key: str = 'windspeed') -> None
+
+
+.. py:function:: upscaled_data_filter(dataManager: ruins.core.DataManager, expert_mode: bool = False, key='upscale_filter', container=st) -> dict
+
+   Create a unified interface to filter the upscaled actions
+
+
+.. py:function:: upscale_plots(dataManager: ruins.core.DataManager, config: ruins.core.Config, expert_mode: bool = False, key: str = 'upscale') -> None
+
+   Show dist-plots for provisioned windpower in Krummhörn along with many filter options
+
+
+.. py:function:: management_plot(dataManager: ruins.core.DataManager, config: ruins.core.Config, expert_mode: bool = False, key: str = 'management') -> None
+
+
+.. py:function:: upscale_ternary_plot(dataManager: ruins.core.DataManager, config: ruins.core.Config, expert_mode: bool = False, key: str = 'ternary') -> None
+
+   Show a ternerary plot for all turbine conbinations in 10% steps with the provisioned power as contour lines
+
+
+.. py:function:: wind_turbine_dimensions(config: ruins.core.Config)
+
+   Let the user play with some wind turbine dimensioning
+
+
+.. py:function:: upscale_windpower(dataManager: ruins.core.DataManager, config: ruins.core.Config) -> None
+
+   Play with upscaling options to see how the wind farm will perform in the future
+
+
+.. py:function:: windpower(dataManager: ruins.core.DataManager, config: ruins.core.Config) -> None
+
+   Load and visualize wind power experiments
+
+
+.. py:function:: windpower_story(dataManager: ruins.core.DataManager, config: ruins.core.Config) -> None
+
+   Guide the user through the windpower landuse example
+
+
+.. py:function:: main_app(**kwargs)
+
+   
+
+

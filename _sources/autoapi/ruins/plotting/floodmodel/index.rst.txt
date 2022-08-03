@@ -1,0 +1,34 @@
+:py:mod:`ruins.plotting.floodmodel`
+===================================
+
+.. py:module:: ruins.plotting.floodmodel
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.floodmodel.sea_level
+   ruins.plotting.floodmodel.canal_recharge
+   ruins.plotting.floodmodel.absolute_water_level
+   ruins.plotting.floodmodel.pump_capacity
+
+
+
+.. py:function:: sea_level(tide_data: pandas.DataFrame, input_scale: float = 1 / 1000.0, knock_level: float = None, fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1) -> plotly.graph_objects.Figure
+
+
+.. py:function:: canal_recharge(recharge_data: pandas.DataFrame, cumsum: bool = False, fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1) -> plotly.graph_objects.Figure
+
+
+.. py:function:: absolute_water_level(hg_model_runs: list, EVEx5_lw_pegel_timesliced: pandas.Series, fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1) -> plotly.graph_objects.Figure
+
+
+.. py:function:: pump_capacity(hg_model_runs: list, pump_capacity_observed: pandas.Series, cumsum: bool = False, fig: plotly.graph_objects.Figure = None, row: int = 1, col: int = 1) -> plotly.graph_objects.Figure
+
+

@@ -1,0 +1,25 @@
+:py:mod:`ruins.plotting.climate_data`
+=====================================
+
+.. py:module:: ruins.plotting.climate_data
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.climate_data.variable_plot
+
+
+
+.. py:function:: variable_plot(climate: xarray.Dataset, variable: str, rcp: str = 'rcp85', color='green', bgcolor='lightgreen', fig: plotly.graph_objects.Figure = None, col: int = 1, row: int = 1) -> plotly.graph_objects.Figure
+
+   Plot one of the climate model predicted variables, grouped by RCP scenario.
+   If rcp is None, the grouping will not be applied.
+
+

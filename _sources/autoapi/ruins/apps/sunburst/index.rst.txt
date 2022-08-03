@@ -1,0 +1,57 @@
+:py:mod:`ruins.apps.sunburst`
+=============================
+
+.. py:module:: ruins.apps.sunburst
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.sunburst.plot_controls
+   ruins.apps.sunburst.get_cached_data
+   ruins.apps.sunburst.sunburst_plot
+   ruins.apps.sunburst.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.sunburst._TRANSLATE_DE
+   ruins.apps.sunburst._TRANSLATE_EN
+
+
+.. py:data:: _TRANSLATE_DE
+   
+
+   
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:function:: plot_controls(config: ruins.core.Config, expander=st.sidebar) -> None
+
+   Add the controls to the application
+
+
+.. py:function:: get_cached_data(_dataManager: ruins.core.DataManager, order: List[str]) -> pandas.DataFrame
+
+
+.. py:function:: sunburst_plot(dataManager: ruins.core.DataManager, config: ruins.core.Config)
+
+   Add the plot
+
+
+.. py:function:: main_app(**kwargs)
+
+

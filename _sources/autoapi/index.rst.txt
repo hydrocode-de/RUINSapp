@@ -1,0 +1,16 @@
+API Reference
+=============
+
+This page contains auto-generated API reference documentation [#f1]_.
+
+.. toctree::
+   :titlesonly:
+
+   /autoapi/ruins/index
+   /autoapi/test_testsuite/index
+   /autoapi/test_config/index
+   /autoapi/test_datamanager/index
+   /autoapi/test_weather/index
+   /autoapi/util/index
+
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

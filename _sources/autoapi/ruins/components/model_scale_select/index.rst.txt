@@ -1,0 +1,58 @@
+:py:mod:`ruins.components.model_scale_select`
+=============================================
+
+.. py:module:: ruins.components.model_scale_select
+
+.. autoapi-nested-parse::
+
+   Model scale selector
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.components.model_scale_select.model_scale_selector
+   ruins.components.model_scale_select.model_scale_select
+   ruins.components.model_scale_select.debug_main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.components.model_scale_select._TRANSLATE_EN
+   ruins.components.model_scale_select._TRANSATE_DE
+
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:data:: _TRANSATE_DE
+   
+
+   
+
+.. py:function:: model_scale_selector(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, **kwargs)
+
+   
+
+
+.. py:function:: model_scale_select(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, **kwargs)
+
+   
+
+
+.. py:function:: debug_main(**kwargs)
+
+

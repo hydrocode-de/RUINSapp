@@ -1,0 +1,44 @@
+:py:mod:`ruins.core.build`
+==========================
+
+.. py:module:: ruins.core.build
+
+.. autoapi-nested-parse::
+
+   Build a :class:`Config <ruins.core.Config>` and a
+   :class:`DataManager <ruins.core.DataManager>` from a kwargs dict.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.build.contextualized_data_manager
+   ruins.core.build.build_config
+   ruins.core.build.download_data_archive
+
+
+
+.. py:function:: contextualized_data_manager(**kwargs) -> ruins.core.data_manager.DataManager
+
+
+.. py:function:: build_config(omit_dataManager: bool = False, url_params: Dict[str, List[str]] = {}, **kwargs) -> Tuple[ruins.core.config.Config, Union[None, ruins.core.data_manager.DataManager]]
+
+   
+
+
+.. py:function:: download_data_archive(path: str = None, url: str = 'http://116.203.189.3/data.zip', DOI: str = None, if_exists: str = 'error')
+
+   Download the data archive and extract into the data folder.
+   If the path is None, the default path inside the repo itself is used.
+   Then, you also need to change the datapath property of the application config.
+   If the data folder already exists and is not empty, the function will error on default.
+   You can pass ``if_exists='prune'`` to remove the existing data folder and replace it with the new one.
+
+

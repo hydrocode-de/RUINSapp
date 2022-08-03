@@ -1,0 +1,1041 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>ruins.core.data_manager &#8212; RUINSapp developers 0.19.0 documentation</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">RUINSapp developers 0.19.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../deploy.html">
+  Deployment guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../index.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apps/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.apps
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/bubbles/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.bubbles
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/extremes/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.extremes
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/landuse/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.landuse
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/temperature_shift/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.temperature_shift
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/uncertainty/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.uncertainty
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/weather/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.weather
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../components/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.components
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../components/data_select/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.components.data_select
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../components/model_scale_select/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.components.model_scale_select
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.core
+    </span>
+   </code>
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../build/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.build
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cache/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.cache
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../config/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.config
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.data_manager
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../debug_view/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.debug_view
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../i18n/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.i18n
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../plotting/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.plotting
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/bubble_plot/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.bubble_plot
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/climate_data/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_data
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/climate_indices/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_indices
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/climate_parcoords/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_parcoords
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/cordex_sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.cordex_sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/distribution_shift/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.distribution_shift
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/dists/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.dists
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/floodmodel/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.floodmodel
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/kde/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.kde
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/maps/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.maps
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/pdsi/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.pdsi
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/stripes_heatmap/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.stripes_heatmap
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/weather_data/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.weather_data
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../plotting/windpower/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.windpower
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../processing/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.processing
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/climate_indices/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.climate_indices
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/drain_cap/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.drain_cap
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/pdsi/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.pdsi
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/sdm/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.sdm
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/windpower/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.windpower
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-manager">
+   The DataManager is a wrapper around all data sources used by RUINSapp.
+It can be configures by any
+   <code class="xref py py-class docutils literal notranslate">
+    <span class="pre">
+     Config
+    </span>
+   </code>
+   class
+and organizes or caches all data sources using a
+   <code class="xref py py-class docutils literal notranslate">
+    <span class="pre">
+     DataSource
+    </span>
+   </code>
+   inherited class.
+This makes the read and filter interface available on all sources, no matter
+where they are stored.
+Using the
+   <code class="xref py py-class docutils literal notranslate">
+    <span class="pre">
+     Config
+    </span>
+   </code>
+   to instantiate a data
+manager can in principle enabled different profiles, or even an interaction
+with the frontend, although not implemented nor desired at the current stage.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.core.data_manager.DataSource">
+       DataSource
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataSource.read">
+         read
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataSource.filter">
+         filter
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.core.data_manager.FileSource">
+       FileSource
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.FileSource._load_source">
+         _load_source
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.FileSource.read">
+         read
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.FileSource.filter">
+         filter
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.core.data_manager.HDF5Source">
+       HDF5Source
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.HDF5Source._load_source">
+         _load_source
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.HDF5Source.read">
+         read
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.core.data_manager.CSVSource">
+       CSVSource
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.CSVSource._load_source">
+         _load_source
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.core.data_manager.DATSource">
+       DATSource
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DATSource._load_source">
+         _load_source
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager">
+       DataManager
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.read">
+         read
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.from_config">
+         from_config
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.datapath">
+         datapath
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.datasources">
+         datasources
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager._infer_from_folder">
+         _infer_from_folder
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.add_source">
+         add_source
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.resolve_class_name">
+         resolve_class_name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.__len__">
+         __len__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.__iter__">
+         __iter__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.__getitem__">
+         __getitem__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.__repr__">
+         __repr__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ruins.core.data_manager.DataManager.__str__">
+         __str__
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="module-ruins.core.data_manager">
+<span id="ruins-core-data-manager"></span><h1><a class="reference internal" href="#module-ruins.core.data_manager" title="ruins.core.data_manager"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.core.data_manager</span></code></a><a class="headerlink" href="#module-ruins.core.data_manager" title="Permalink to this heading">#</a></h1>
+<section id="data-manager">
+<p>The DataManager is a wrapper around all data sources used by RUINSapp.
+It can be configures by any <a class="reference internal" href="../config/index.html#ruins.core.config.Config" title="ruins.core.config.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a> class
+and organizes or caches all data sources using a
+<a class="reference internal" href="#ruins.core.data_manager.DataSource" title="ruins.core.data_manager.DataSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSource</span></code></a> inherited class.
+This makes the read and filter interface available on all sources, no matter
+where they are stored.
+Using the <a class="reference internal" href="../config/index.html#ruins.core.config.Config" title="ruins.core.config.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a> to instantiate a data
+manager can in principle enabled different profiles, or even an interaction
+with the frontend, although not implemented nor desired at the current stage.</p>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ruins</span> <span class="kn">import</span> <span class="n">core</span>
+
+<span class="c1"># create default config</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+
+<span class="c1"># create a data manager from this</span>
+<span class="n">dm</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">DataManager</span><span class="p">(</span><span class="o">**</span><span class="n">conf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course, the data manager can also be used without the config, ie. to open it
+in debug mode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using conf with conf.debug=False and overwrite it</span>
+<span class="n">dm</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">DataManager</span><span class="p">(</span><span class="o">**</span><span class="n">conf</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.core.data_manager.DataSource" title="ruins.core.data_manager.DataSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSource</span></code></a></p></td>
+<td><p>Abstract base class for data sources. This provides the common interface</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.core.data_manager.FileSource" title="ruins.core.data_manager.FileSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileSource</span></code></a></p></td>
+<td><p>Abstract base class for file sources. This provides the common interface</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.core.data_manager.HDF5Source" title="ruins.core.data_manager.HDF5Source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDF5Source</span></code></a></p></td>
+<td><p>HDF5 file sources. This class is used to load HDF5 files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.core.data_manager.CSVSource" title="ruins.core.data_manager.CSVSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CSVSource</span></code></a></p></td>
+<td><p>CSV file source. This class is used to load CSV files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.core.data_manager.DATSource" title="ruins.core.data_manager.DATSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATSource</span></code></a></p></td>
+<td><p>DAT file source. This class is used to load .dat files</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.core.data_manager.DataManager" title="ruins.core.data_manager.DataManager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataManager</span></code></a></p></td>
+<td><p>Main class for accessing different data sources.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ruins.core.data_manager.</span></span><span class="sig-name descname"><span class="pre">DataSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataSource" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.10/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Abstract base class for data sources. This provides the common interface
+for data sources of different source types (like file, URL, database).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataSource.read">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataSource.read" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataSource.filter">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataSource.filter" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ruins.core.data_manager.FileSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ruins.core.data_manager.</span></span><span class="sig-name descname"><span class="pre">FileSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hot_load</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.FileSource" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ruins.core.data_manager.DataSource" title="ruins.core.data_manager.DataSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSource</span></code></a>, <a class="reference external" href="https://docs.python.org/3.10/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Abstract base class for file sources. This provides the common interface
+for every data source that is based on a file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.FileSource._load_source">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_load_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.FileSource._load_source" title="Permalink to this definition">#</a></dt>
+<dd><p>Method to load the actual source on the disk</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.FileSource.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.FileSource.read" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.FileSource.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.FileSource.filter" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ruins.core.data_manager.HDF5Source">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ruins.core.data_manager.</span></span><span class="sig-name descname"><span class="pre">HDF5Source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hot_load</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.HDF5Source" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ruins.core.data_manager.FileSource" title="ruins.core.data_manager.FileSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileSource</span></code></a></p>
+<p>HDF5 file sources. This class is used to load HDF5 files.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.HDF5Source._load_source">
+<span class="sig-name descname"><span class="pre">_load_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">xarray.Dataset</span></span></span><a class="headerlink" href="#ruins.core.data_manager.HDF5Source._load_source" title="Permalink to this definition">#</a></dt>
+<dd><p>Method to load the actual source on the disk</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.HDF5Source.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">xarray.Dataset</span></span></span><a class="headerlink" href="#ruins.core.data_manager.HDF5Source.read" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ruins.core.data_manager.CSVSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ruins.core.data_manager.</span></span><span class="sig-name descname"><span class="pre">CSVSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.CSVSource" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ruins.core.data_manager.FileSource" title="ruins.core.data_manager.FileSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileSource</span></code></a></p>
+<p>CSV file source. This class is used to load CSV files.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.CSVSource._load_source">
+<span class="sig-name descname"><span class="pre">_load_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.CSVSource._load_source" title="Permalink to this definition">#</a></dt>
+<dd><p>Method to load the actual source on the disk</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DATSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ruins.core.data_manager.</span></span><span class="sig-name descname"><span class="pre">DATSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DATSource" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ruins.core.data_manager.FileSource" title="ruins.core.data_manager.FileSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileSource</span></code></a></p>
+<p>DAT file source. This class is used to load .dat files</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DATSource._load_source">
+<span class="sig-name descname"><span class="pre">_load_source</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DATSource._load_source" title="Permalink to this definition">#</a></dt>
+<dd><p>Method to load the actual source on the disk</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ruins.core.data_manager.</span></span><span class="sig-name descname"><span class="pre">DataManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datapath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hot_load</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataManager" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.10/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a></p>
+<p>Main class for accessing different data sources.</p>
+<p>The DataManager holds and manages all data sources. The default behavior is
+to scan the specified path for files of known file extension and cache them
+in memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datapath</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – A location where the data is stored. The class will load all sources
+there and make them accessible through DataSource classes.</p></li>
+<li><p><strong>cache</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Will be passed to the DataSource classes. It true, the source will only
+be read once and then stored in memory until the DataManager gets
+deconstructed.</p></li>
+<li><p><strong>include_mimes</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A dictionary of file extensions and their corresponding DataSource.
+If something is not listed, the DataManager will ignore the file type.
+The include_mimes can be overwritten by passing filenames directly.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_or_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataManager.read" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.from_config">
+<span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datapath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hot_load</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.10/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager.from_config" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize the DataManager from a <a class="reference internal" href="../index.html#ruins.core.Config" title="ruins.core.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.datapath">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">datapath</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager.datapath" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.datasources">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">datasources</span></span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ruins.core.data_manager.DataSource" title="ruins.core.data_manager.DataSource"><span class="pre">DataSource</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager.datasources" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager._infer_from_folder">
+<span class="sig-name descname"><span class="pre">_infer_from_folder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.10/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager._infer_from_folder" title="Permalink to this definition">#</a></dt>
+<dd><p>Read all files from the datapath as specified on instantiation.
+Calls <a class="reference internal" href="#ruins.core.data_manager.DataManager.add_source" title="ruins.core.data_manager.DataManager.add_source"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_source()</span></code></a> on each file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.add_source">
+<span class="sig-name descname"><span class="pre">add_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">not_exists</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.10/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager.add_source" title="Permalink to this definition">#</a></dt>
+<dd><p>Add a file as data source to the DataManager.
+Only if the file has an allowed file extension, it will be managed.
+Files of same name will be overwritten, this is also true if they had
+different extensions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.resolve_class_name">
+<span class="sig-name descname"><span class="pre">resolve_class_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#ruins.core.data_manager.DataSource" title="ruins.core.data_manager.DataSource"><span class="pre">DataSource</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager.resolve_class_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataManager.__len__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the number of managed data sources</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.__iter__">
+<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataManager.__iter__" title="Permalink to this definition">#</a></dt>
+<dd><p>Iterate over all dataset names</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#ruins.core.data_manager.DataSource" title="ruins.core.data_manager.DataSource"><span class="pre">DataSource</span></a></span></span><a class="headerlink" href="#ruins.core.data_manager.DataManager.__getitem__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the requested datasource</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataManager.__repr__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ruins.core.data_manager.DataManager.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ruins.core.data_manager.DataManager.__str__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              </footer>
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright 2022, Mirko Mälicke.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>

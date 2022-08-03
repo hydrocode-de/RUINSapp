@@ -1,0 +1,40 @@
+:py:mod:`ruins.core.i18n`
+=========================
+
+.. py:module:: ruins.core.i18n
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.i18n.get_translator
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.i18n.DEFAULT
+
+
+.. py:data:: DEFAULT
+   
+
+   
+
+.. py:function:: get_translator(lang: str, default: dict = dict(), **translations: Dict[str, str]) -> Callable[[str], str]
+
+   Translator factory
+   Returns a function that returns prepared translations from
+   a languge dictionary for a passed key. The dictionaries have to be passed
+   as kwargs, using the language as key.
+
+

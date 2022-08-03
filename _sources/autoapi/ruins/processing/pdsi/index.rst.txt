@@ -1,0 +1,24 @@
+:py:mod:`ruins.processing.pdsi`
+===============================
+
+.. py:module:: ruins.processing.pdsi
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.pdsi.multiindex_pdsi_data
+
+
+
+.. py:function:: multiindex_pdsi_data(pdsi: pandas.DataFrame, grouping: List[str] = ['rcp', 'gcm'], filters: dict = None, inplace: bool = False) -> pandas.DataFrame
+
+   
+
+

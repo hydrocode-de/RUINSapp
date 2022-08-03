@@ -1,0 +1,49 @@
+:py:mod:`ruins.plotting.distribution_shift`
+===========================================
+
+.. py:module:: ruins.plotting.distribution_shift
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.distribution_shift.plot_extreme_pdf
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.distribution_shift.BORDERS_COLORS
+   ruins.plotting.distribution_shift.BORDER_NAMES
+
+
+.. py:data:: BORDERS_COLORS
+   
+
+   
+
+.. py:data:: BORDER_NAMES
+   :annotation: = ['extreme frost', 'frost', 'cold', 'warm', 'hot', 'tropic']
+
+   
+
+.. py:function:: plot_extreme_pdf(mus: float, stds: float, fig: plotly.graph_objects.Figure = None, border_colors=BORDERS_COLORS, border_names=BORDER_NAMES, x_range=(0, 25), x_res: int = 100, y_res: int = 25, label_margin_scale=1.1) -> plotly.graph_objects.Figure
+
+   Temperature PDF shift plot.
+   This function returns a plotly figure containing a heavily styled plotly PDF plot.
+   It is controlled by passing the PDF moment(s) to the plot. If called with only one
+   location and scale, the styled PDF is returned.
+   If two locations and scales are passed, but both scales are the same, the PDF is
+   only shifted by location and the original PDF is sketched. In case the scales differ,
+   the new PDF will be correctly annotated.
+
+

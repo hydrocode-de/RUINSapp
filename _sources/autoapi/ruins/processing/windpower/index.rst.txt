@@ -1,0 +1,208 @@
+:py:mod:`ruins.processing.windpower`
+====================================
+
+.. py:module:: ruins.processing.windpower
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.windpower.turbine_footprint
+   ruins.processing.windpower.upscale_windenergy
+   ruins.processing.windpower.load_windpower_data
+   ruins.processing.windpower.windpower_actions_projection
+   ruins.processing.windpower.crra
+   ruins.processing.windpower.atk
+   ruins.processing.windpower.create_action_grid
+   ruins.processing.windpower.uncertainty_analysis
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.windpower.TURBINES
+
+
+.. py:data:: TURBINES
+   
+
+   
+
+.. py:function:: turbine_footprint(turbine: Union[str, Tuple[float, int]], unit: str = 'ha')
+
+   Calculate the footprint for the given turbine dimension. The turbine can
+   be either specified by rated power and rotor diameter, or by one the the type
+   names: E53, E115, E126.
+
+   :param turbine: Either the turbine name or a tuple of (rated power, rotor diameter)
+   :type turbine: str or tuple
+   :param unit: The unit of the returned footprint. Either 'ha' or 'km2'.
+                Defaults to 'ha'.
+   :type unit: str, optional
+
+   :returns: * **area** (*float*) -- The area of the turbine in the given unit.
+             * **mw** (*float*) -- The rated power of the turbine in MW.
+
+
+.. py:function:: upscale_windenergy(turbines: List[Union[str, Tuple[float, int]]], specs: List[Tuple[float]], site: float = 396.0) -> numpy.ndarray
+
+   Upscale the given turbines to the site.
+   Pass a list of turbine definitions (either names or MW, rotor_diameter tuples.).
+   The function will apply the specs to the site. The specs can either be absolute number of
+   turbines per turbine or relative shares per turbine type.
+   Returns a tuple for each turbine type.
+
+   :param turbines: List of turbine definitions. Either names or MW, rotor_diameter tuples.
+   :type turbines: list
+   :param specs: List of the upscaling specifications. For this, the share of each turbine
+                 in the turbines list, a area share has to be specified. Ideally, these
+                 should at most sum up to 1.
+   :type specs: list
+   :param site: Site area in ha. The upscaling will apply the specified area share
+                to each turbine type and return the maximum number of possible turbines.
+   :type site: float, optional
+
+   :returns: **results** -- A list of tuples per turbine type. (n_turbines, total_area, total_mw)
+   :rtype: List[Tuple[float, int, float]]
+
+
+.. py:function:: load_windpower_data(dataManager: ruins.core.DataManager, joint_only: bool = False) -> pandas.DataFrame
+
+   Load the raw windpower simulations and apply a MultiIndex. The rows are indexed
+   by all years contained in the climate simulations. The coluns group the single
+   simulations by Turbine type, global circulation model (GCM), regional climate
+   model (RCM), and the CO2 scenario (RCP).
+
+   :param joint_only: If True, only data for 16 joint simulations are returned (combinations of global circulation
+                      model (GCM), regional climate model (RCM) and ensemble available for all three RCPs).
+   :type joint_only: bool
+   :param Returns:
+   :param df: Result dataframe with all contained years as row index and a simulation type
+              as column index.
+   :type df: pd.DataFrame
+
+
+.. py:function:: windpower_actions_projection(dataManager: ruins.core.DataManager, scenarios, site: float = 396.0, filter_={}) -> Tuple[List[pandas.DataFrame], List[Tuple[int, float]]]
+
+   Windpower management options (actions) upscaling.
+   This function can be used to specifiy several scenarios, how the three windturbines
+   E53, E115, E126 are balanced out. For each of these scenarios, the function will return
+   a pandas dataframe with the provisioned windpower for each of the three turbines and
+   each year.
+   The used climate scenarios can be filtered by GCM, RCM, RCP or to only use combinations
+   of GCM RCM and ensemble, that are available for all RCPS (N=16).
+   The windpower data for each model combination that fits the filter will be concatenated,
+   thus there can be duplicate rows.
+
+   :param dataManager: DataManager instance to obtain the model data.
+   :type dataManager: DataManager
+   :param scenarios: List of scenario specifications.
+   :type scenarios: list
+   :param site: Site area in ha.
+   :type site: float, optional
+   :param filter_: Filter to apply to the scenarios. The filter can contain the keys:
+                   'gcm', 'rcm', 'rcp', 'joint'.
+   :type filter_: dict, optional
+
+   :returns: * **actions** (*List[pd.DataFrame]*) -- List of dataframes for each scenario.
+             * **dim** (*List[tuple]*) -- The applied dimenisoning (number of turbines) for each scenario
+
+
+.. py:function:: crra(payoff: numpy.array, gamma: float = 1.0, p: List[float] = None) -> Tuple[float]
+
+   Von Neumann-Morgenstern constant relative risk aversion (CRRA).
+   Returns the expected utility, certainty equivalent, expected value and the
+   risk premium assocaiated to a management decision, based on an array of
+   payoffs.
+
+   :param payoff: The payoff array includes all possible outcomes of the decision.
+   :type payoff: numpy.array
+   :param gamma: Risk aversion factor. If higher, the decision maker is willing to take more risk.
+   :type gamma: float
+   :param p: List if probabilities associated to the payoffs. If None (default), all
+             payoffs are euqally probable.
+   :type p: List[float]
+
+   :returns: * **eu** (*float*) -- Expected utility (E[U(x)]) is the probability weighted sum of utilities associated with each possible payoff.
+             * **ce** (*float*) -- certainty equivalent (CER) is the sure amount of payoff that is as desirable to the
+               decision-maker (same utility) as the risky outcome.
+             * **ev** (*float*) -- Expected value (EV)
+             * **rp** (*float*) -- Risk premium (RP) sure amount of payoff that one is willing to forego at
+               maximum to reach a situation of certainty
+
+   .. rubric:: Notes
+
+   Translation of the R function `CRRA.leila` from taken from R-code Laila (Appendix 8, Master Thesis, 2020)
+
+
+.. py:function:: atk(ce: Union[numpy.array, float], alpha: float = 0.75) -> Tuple[float]
+
+   Atkinson's inequality aversion (ATK).
+
+   :param ce: possible payoff vector, usually the certainty equivalent (CER) of the payoff vector
+   :type ce: numpy.array
+   :param alpha: Uncertainty aversion coefficient. If higher, the decision maker is more risk averse.
+   :type alpha: float
+
+   :returns: * **u** (*float*) -- Utility (U(x)) is the utility associated with the payoff vector.
+             * **up** (*float*) -- Uncertainty premium (UP) is the average payoff that the decision-maker would demand
+               in order to willingly take on uncertainty
+
+   .. rubric:: Notes
+
+   Translation of the R function `Atk` from taken from R-code Laila (Appendix 8, Master Thesis, 2020)
+
+
+.. py:function:: create_action_grid(dataManager: ruins.core.DataManager, resolution: float = 0.1, filter_: dict = {}) -> Tuple[list, list]
+
+   Create a grid of management actions by balacing all three turbine types.
+   The function balances the area occupied by each turbine type in steps of
+   resolution. The grid is created for all possible combinations, wich sum
+   up to 100% of the area.
+
+   :param dataManager: RUINS data manager instance to load the wind provisioning dataset.
+   :type dataManager: DataManager
+   :param resolution: Resolution of the grid. The default is 0.1. Has to be bewteen 0 and 1.
+   :type resolution: float, optional
+   :param filter_: Filter to apply to the wind provisioning dataset. The default is no
+                   filter. Possible to load only joint datasets, fitler by GCM, RCM, RCP
+                   or slice to years
+   :type filter_: dict, optional
+
+   :returns: * **actions** (*List[pandas.DataFrame]*) -- Returns a dataframe for each management action.
+               Each dataframe represents the provisioned windpower for each turbine type
+               and year.
+             * **scenarios** (*List[Tuples[float, float, float]]*) -- Returns tuple for each management option. The tuple contains the
+               area shares for each of the turbines associated with the action.
+
+
+.. py:function:: uncertainty_analysis(actions: List[pandas.DataFrame], gamma: float = 1.2, alpha: float = 0.75) -> pandas.DataFrame
+
+   Run the uncertainty analysis for a list of provisioned windpower scenarios. Each
+   scenario represent the outcome of a management option.
+
+   :param actions: List of provisioned windpower scenarios. Each scenario represents the outcome
+                   of a management option.
+   :type actions: List[pandas.DataFrame]
+   :param gamma: Risk aversion factor. If higher, the decision maker is willing to take more risk.
+                 The default is 1.2.
+   :type gamma: float, optional
+   :param alpha: Uncertainty aversion coefficient. If higher, the decision maker is more risk averse.
+                 The default is 0.75.
+   :type alpha: float, optional
+
+   :returns: **df** -- Returns a dataframe with the uncertainty analysis results for each scenario.
+   :rtype: pandas.DataFrame
+
+   .. seealso:: :obj:`ruins.processing.windpower.crra`, :obj:`ruins.processing.windpower.atk`
+
+

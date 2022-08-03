@@ -1,0 +1,53 @@
+:py:mod:`test_config`
+=====================
+
+.. py:module:: test_config
+
+.. autoapi-nested-parse::
+
+   Test the config object
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   test_config.test_default_config
+   test_config.test_config_overwrites
+   test_config.test_from_json
+   test_config.test_config_as_dict
+   test_config.test_config_key_error
+
+
+
+.. py:function:: test_default_config()
+
+   Check default paths
+
+
+.. py:function:: test_config_overwrites()
+
+   Check that default config can be overwritten
+
+
+.. py:function:: test_from_json()
+
+   Build a config from file
+
+
+.. py:function:: test_config_as_dict()
+
+   Test that the config behaves like a dict
+
+
+.. py:function:: test_config_key_error()
+
+   An unknown key should throw a key error
+
+

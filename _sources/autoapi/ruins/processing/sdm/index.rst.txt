@@ -1,0 +1,68 @@
+:py:mod:`ruins.processing.sdm`
+==============================
+
+.. py:module:: ruins.processing.sdm
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.processing.sdm.relSDM
+   ruins.processing.sdm.absSDM
+   ruins.processing.sdm.SDM
+
+
+
+.. py:function:: relSDM(obs, mod, sce, cdf_threshold=0.9999999, lower_limit=0.1)
+
+   relative scaled distribution mapping assuming a gamma distributed parameter (with lower limit zero)
+   rewritten from pyCAT for 1D data
+
+   obs :: observed variable time series
+   mod :: modelled variable for same time series as obs
+   sce :: to unbias modelled time series
+   cdf_threshold :: upper and lower threshold of CDF
+   lower_limit :: lower limit of data signal (values below will be masked!)
+
+   returns corrected timeseries
+   tested with pandas series.
+
+
+.. py:function:: absSDM(obs, mod, sce, cdf_threshold=0.9999999)
+
+   absolute scaled distribution mapping assuming a normal distributed parameter
+   rewritten from pyCAT for 1D data
+
+   obs :: observed variable time series
+   mod :: modelled variable for same time series as obs
+   sce :: to unbias modelled time series
+   cdf_threshold :: upper and lower threshold of CDF
+
+   returns corrected timeseries
+   tested with pandas series.
+
+
+.. py:function:: SDM(obs, mod, sce, meth='rel', cdf_threshold=0.9999999, lower_limit=0.1)
+
+   scaled distribution mapping - wrapper to relative and absolute bias correction functions
+   rewritten from pyCAT for 1D data
+
+   obs :: observed variable time series
+   mod :: modelled variable for same time series as obs
+   sce :: to unbias modelled time series
+   meth :: 'rel' for relative SDM, else absolute SDM will be performed
+   cdf_threshold :: upper and lower threshold of CDF
+   lower_limit :: lower limit of data signal (values below will be masked when meth != 'rel')
+
+   The original authors suggest to use the absolute SDM for air temperature and the relative SDM for precipitation and radiation series.
+
+   returns corrected timeseries
+   tested with pandas series.
+
+

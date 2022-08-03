@@ -1,0 +1,67 @@
+:py:mod:`ruins.apps.uncertainty`
+================================
+
+.. py:module:: ruins.apps.uncertainty
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.uncertainty.concept_explainer
+   ruins.apps.uncertainty._helper_plot
+   ruins.apps.uncertainty.concept_graph
+   ruins.apps.uncertainty.concept_playground
+   ruins.apps.uncertainty.main_app
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.apps.uncertainty._TRANSLATE_EN
+   ruins.apps.uncertainty._TRANSLATE_DE
+
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:data:: _TRANSLATE_DE
+   
+
+   
+
+.. py:function:: concept_explainer(config: ruins.core.Config, **kwargs)
+
+   Show an explanation, if it was not already shown.
+
+
+
+.. py:function:: _helper_plot(ev1: List[Tuple[float, float]], ev2: Tuple[float, float] = None, **kwargs) -> plotly.graph_objects.Figure
+
+
+.. py:function:: concept_graph(config: ruins.core.Config, expander_container=st.sidebar, **kwargs) -> plotly.graph_objects.Figure
+
+   # TODO: document this
+
+
+.. py:function:: concept_playground(config: ruins.core.Config) -> None
+
+   The concept playground demonstrates how knightian uncertainty
+   is different from risk and how it influences everyday decisions.
+
+
+.. py:function:: main_app(**kwargs)
+
+   
+
+

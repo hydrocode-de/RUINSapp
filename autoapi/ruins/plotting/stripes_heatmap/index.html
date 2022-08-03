@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>ruins.plotting.stripes_heatmap &#8212; RUINSapp developers 0.19.0 documentation</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">RUINSapp developers 0.19.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../deploy.html">
+  Deployment guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../index.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apps/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.apps
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/bubbles/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.bubbles
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/extremes/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.extremes
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/landuse/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.landuse
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/temperature_shift/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.temperature_shift
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/uncertainty/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.uncertainty
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apps/weather/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.weather
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../components/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.components
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../components/data_select/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.components.data_select
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../components/model_scale_select/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.components.model_scale_select
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../core/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.core
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../core/build/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.build
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../core/cache/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.cache
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../core/config/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.config
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../core/data_manager/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.data_manager
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../core/debug_view/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.debug_view
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../core/i18n/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.i18n
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.plotting
+    </span>
+   </code>
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bubble_plot/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.bubble_plot
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../climate_data/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_data
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../climate_indices/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_indices
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../climate_parcoords/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_parcoords
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cordex_sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.cordex_sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../distribution_shift/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.distribution_shift
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dists/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.dists
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../floodmodel/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.floodmodel
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../kde/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.kde
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../maps/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.maps
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pdsi/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.pdsi
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.stripes_heatmap
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../weather_data/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.weather_data
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../windpower/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.windpower
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../processing/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.processing
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/climate_indices/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.climate_indices
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/drain_cap/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.drain_cap
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/pdsi/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.pdsi
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/sdm/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.sdm
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../processing/windpower/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.windpower
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.stripes_heatmap.yrplot_data">
+       yrplot_data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.stripes_heatmap._yrplot_matplotlib">
+       _yrplot_matplotlib
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.stripes_heatmap._yrplot_plotly">
+       _yrplot_plotly
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.stripes_heatmap.yrplot_hm">
+       yrplot_hm
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="module-ruins.plotting.stripes_heatmap">
+<span id="ruins-plotting-stripes-heatmap"></span><h1><a class="reference internal" href="#module-ruins.plotting.stripes_heatmap" title="ruins.plotting.stripes_heatmap"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.stripes_heatmap</span></code></a><a class="headerlink" href="#module-ruins.plotting.stripes_heatmap" title="Permalink to this heading">#</a></h1>
+<p>This module implements a stripes plot function that can create annual and monthly
+stripes plots from given climate and weather data. There is a matplotlib and a
+plotly version. The streamlit app uses the plotly version by default.
+The plotly plot is interactive and available in a German and English version, the
+matplotlib version is static and only available in English.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.stripes_heatmap.yrplot_data" title="ruins.plotting.stripes_heatmap.yrplot_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrplot_data</span></code></a>(→ Tuple[pandas.DataFrame, float, float])</p></td>
+<td><p>Prepare the given data for monthly and annual stripes to be plotted in a heatmap.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.stripes_heatmap._yrplot_matplotlib" title="ruins.plotting.stripes_heatmap._yrplot_matplotlib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_yrplot_matplotlib</span></code></a>(sr[, ref, ag, qa, cbar_title, cmx, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.stripes_heatmap._yrplot_plotly" title="ruins.plotting.stripes_heatmap._yrplot_plotly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_yrplot_plotly</span></code></a>(sr[, ref, ag, qa, cbar_title, cmx, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.stripes_heatmap.yrplot_hm" title="ruins.plotting.stripes_heatmap.yrplot_hm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrplot_hm</span></code></a>(sr[, ref, ag, qa, cbar_title, cmx, cmxeq, ...])</p></td>
+<td><p>Yearly stripes plot.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.stripes_heatmap.yrplot_data">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.stripes_heatmap.</span></span><span class="sig-name descname"><span class="pre">yrplot_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1980,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmxeq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ruins.plotting.stripes_heatmap.yrplot_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Prepare the given data for monthly and annual stripes to be plotted in a heatmap.
+The data is grouped and the limits for plotting are returned, based on the quantile given.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.stripes_heatmap._yrplot_matplotlib">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.stripes_heatmap.</span></span><span class="sig-name descname"><span class="pre">_yrplot_matplotlib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1980,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Temperature</span> <span class="pre">anomaly</span> <span class="pre">(K)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coolwarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmxeq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.plotting.stripes_heatmap._yrplot_matplotlib" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.stripes_heatmap._yrplot_plotly">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.stripes_heatmap.</span></span><span class="sig-name descname"><span class="pre">_yrplot_plotly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1980,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Temperature</span> <span class="pre">anomaly</span> <span class="pre">(K)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coolwarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmxeq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.plotting.stripes_heatmap._yrplot_plotly" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.stripes_heatmap.yrplot_hm">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.stripes_heatmap.</span></span><span class="sig-name descname"><span class="pre">yrplot_hm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1980,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Temperature</span> <span class="pre">anomaly</span> <span class="pre">(K)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coolwarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmxeq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plotly'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.plotting.stripes_heatmap.yrplot_hm" title="Permalink to this definition">#</a></dt>
+<dd><p>Yearly stripes plot.
+Creates a monthly resloved stripes plot for each year in the data.
+The data is plotted as a heatmap showing the Temperature anomaly to the passed reference period
+based on the adjustable quartile value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sr</strong> (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><em>pandas.DataFrame</em></a>) – Input data originating from one ground station</p></li>
+<li><p><strong>ref</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – Reference period to calculate the anomaly.</p></li>
+<li><p><strong>ag</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Reduction function to use. Can be used to calculate
+the temperature anomaly in ‘sum’, ‘min’, ‘max’ or ‘mean’</p></li>
+<li><p><strong>qa</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Quartile to use. Has to be between 0 and 1.</p></li>
+<li><p><strong>cbar_title</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Optional title for the colorbar</p></li>
+<li><p><strong>cmx</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Colorbar scale. Can be any string accepted by the plotting backend.</p></li>
+<li><p><strong>cmxeq</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If True (default), the colorbar range is calculated for
+the full dataset.</p></li>
+<li><p><strong>lang</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Can be either <code class="docutils literal notranslate"><span class="pre">'en'</span></code> or <a href="#id1"><span class="problematic" id="id2">``</span></a>’de’<a href="#id3"><span class="problematic" id="id4">`</span></a>. The language used for axis labels.</p></li>
+<li><p><strong>backend</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Can be either <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.
+The plotting backend to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              </footer>
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright 2022, Mirko Mälicke.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>

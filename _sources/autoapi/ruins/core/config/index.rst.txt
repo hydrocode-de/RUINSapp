@@ -1,0 +1,106 @@
+:py:mod:`ruins.core.config`
+===========================
+
+.. py:module:: ruins.core.config
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.config.Config
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.core.config.session_state
+
+
+.. py:data:: session_state
+   
+
+   
+
+.. py:class:: Config(path: str = None, **kwargs)
+
+   Bases: :py:obj:`collections.abc.Mapping`
+
+   Streamlit app Config object.
+
+   This class holds all configs needed to run the apps.
+   It can be instantiated just like this to load default
+   values.
+   If a path is provided, it will load the configs from
+   the referenced json file. Any config can be updated
+   by passed kwargs.
+
+   This design makes the config updateable and easy to
+   to manage. At the same time it can be persisted to
+   the disk and even mirrored to a database if needed in
+   the future.
+
+
+   .. py:method:: debug()
+      :property:
+
+
+   .. py:method:: story_mode()
+      :property:
+
+
+   .. py:method:: from_json(path: str) -> dict
+
+      loads the content of the JSON config file
+
+
+   .. py:method:: _update(new_settings: dict) -> None
+
+      Update this instance with new settings
+
+
+   .. py:method:: get_control_policy(control_name: str) -> str
+
+      Get the control policy for the given control name.
+
+      allowed policies are:
+          - show: always show the control on the main container
+          - hide: hide the control on the main container, but move to the expander
+          - ignore: don't show anything
+
+
+
+   .. py:method:: translator(**translations: Dict[str, str]) -> Callable[[str], str]
+
+      Return a translator function
+
+
+   .. py:method:: get(key: str, default=None)
+
+      D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.
+
+
+   .. py:method:: has_key(key) -> bool
+
+
+   .. py:method:: __len__() -> int
+
+
+   .. py:method:: __iter__()
+
+
+   .. py:method:: __getitem__(key: str)
+
+
+   .. py:method:: __setitem__(key: str, value)
+
+
+

@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>ruins.plotting &#8212; RUINSapp developers 0.19.0 documentation</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">RUINSapp developers 0.19.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../deploy.html">
+  Deployment guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../apps/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.apps
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/bubbles/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.bubbles
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/extremes/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.extremes
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/landuse/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.landuse
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/temperature_shift/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.temperature_shift
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/uncertainty/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.uncertainty
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apps/weather/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.apps.weather
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../components/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.components
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../components/data_select/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.components.data_select
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../components/model_scale_select/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.components.model_scale_select
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../core/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.core
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../core/build/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.build
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../core/cache/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.cache
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../core/config/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.config
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../core/data_manager/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.data_manager
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../core/debug_view/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.debug_view
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../core/i18n/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.core.i18n
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.plotting
+    </span>
+   </code>
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bubble_plot/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.bubble_plot
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climate_data/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_data
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climate_indices/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_indices
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climate_parcoords/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.climate_parcoords
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cordex_sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.cordex_sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="distribution_shift/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.distribution_shift
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dists/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.dists
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="floodmodel/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.floodmodel
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kde/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.kde
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="maps/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.maps
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pdsi/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.pdsi
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stripes_heatmap/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.stripes_heatmap
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="weather_data/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.weather_data
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="windpower/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.plotting.windpower
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../processing/index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     ruins.processing
+    </span>
+   </code>
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../processing/climate_indices/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.climate_indices
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../processing/drain_cap/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.drain_cap
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../processing/pdsi/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.pdsi
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../processing/sdm/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.sdm
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../processing/sunburst/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.sunburst
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../processing/windpower/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       ruins.processing.windpower
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.plt_map">
+       plt_map
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.kde">
+       kde
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.monthlyx">
+       monthlyx
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.yrplot_hm">
+       yrplot_hm
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.climate_projection_parcoords">
+       climate_projection_parcoords
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.distribution_plot">
+       distribution_plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.plot_climate_indices">
+       plot_climate_indices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.sunburst">
+       sunburst
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.plot_extreme_pdf">
+       plot_extreme_pdf
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.pdsi_plot">
+       pdsi_plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.tree_plot">
+       tree_plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.variable_plot">
+       variable_plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.windpower_distplot">
+       windpower_distplot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.ternary_provision_plot">
+       ternary_provision_plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ruins.plotting.management_scatter_plot">
+       management_scatter_plot
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="module-ruins.plotting">
+<span id="ruins-plotting"></span><h1><a class="reference internal" href="#module-ruins.plotting" title="ruins.plotting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting</span></code></a><a class="headerlink" href="#module-ruins.plotting" title="Permalink to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bubble_plot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.bubble_plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="climate_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.climate_data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="climate_indices/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.climate_indices</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="climate_parcoords/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.climate_parcoords</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cordex_sunburst/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.cordex_sunburst</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribution_shift/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.distribution_shift</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="dists/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.dists</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="floodmodel/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.floodmodel</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="kde/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.kde</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="maps/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.maps</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="pdsi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.pdsi</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="stripes_heatmap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.stripes_heatmap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="weather_data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.weather_data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="windpower/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ruins.plotting.windpower</span></code></a></li>
+</ul>
+</div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.plt_map" title="ruins.plotting.plt_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plt_map</span></code></a>(→ plotly.graph_objs.Figure)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="kde/index.html#module-ruins.plotting.kde" title="ruins.plotting.kde"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kde</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.monthlyx" title="ruins.plotting.monthlyx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">monthlyx</span></code></a>(→ matplotlib.pyplot.Figure)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.yrplot_hm" title="ruins.plotting.yrplot_hm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yrplot_hm</span></code></a>(sr[, ref, ag, qa, cbar_title, cmx, cmxeq, ...])</p></td>
+<td><p>Yearly stripes plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.climate_projection_parcoords" title="ruins.plotting.climate_projection_parcoords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">climate_projection_parcoords</span></code></a>(data[, fig, align_range, ...])</p></td>
+<td><p>Parallel coordinates plot for climate projections.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.distribution_plot" title="ruins.plotting.distribution_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distribution_plot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p>Concept plot for PDFs of different events.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.plot_climate_indices" title="ruins.plotting.plot_climate_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_climate_indices</span></code></a>(, fig)</p></td>
+<td><p>Generate a climate indices plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.sunburst" title="ruins.plotting.sunburst"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sunburst</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p>Create a sunburst plot of all climate models included in the current</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.plot_extreme_pdf" title="ruins.plotting.plot_extreme_pdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_extreme_pdf</span></code></a>(, x_res, y_res[, label_margin_scale])</p></td>
+<td><p>Temperature PDF shift plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.pdsi_plot" title="ruins.plotting.pdsi_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdsi_plot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p>Heatmap plot for Palmer drought severity index</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.tree_plot" title="ruins.plotting.tree_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tree_plot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.variable_plot" title="ruins.plotting.variable_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">variable_plot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p>Plot one of the climate model predicted variables, grouped by RCP scenario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.windpower_distplot" title="ruins.plotting.windpower_distplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">windpower_distplot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p>Plot the actions projected to climate models</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ruins.plotting.ternary_provision_plot" title="ruins.plotting.ternary_provision_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ternary_provision_plot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p>Make a ternary plot of the three turbines shares on the axes and the provisioned Windpower as contours</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ruins.plotting.management_scatter_plot" title="ruins.plotting.management_scatter_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">management_scatter_plot</span></code></a>(→ plotly.graph_objects.Figure)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.plt_map">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">plt_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataManager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../core/index.html#ruins.core.DataManager" title="ruins.core.DataManager"><span class="pre">ruins.core.DataManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objs.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.plt_map" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.kde">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">kde</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_ts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eq_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.plotting.kde" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.monthlyx">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">monthlyx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dyx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T</span> <span class="pre">(°C)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clab1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Monthly</span> <span class="pre">Mean</span> <span class="pre">in</span> <span class="pre">Year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clab2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Monthly</span> <span class="pre">Max</span> <span class="pre">in</span> <span class="pre">Year'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cividis_r'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">matplotlib.pyplot.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.monthlyx" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.yrplot_hm">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">yrplot_hm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1980,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbar_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Temperature</span> <span class="pre">anomaly</span> <span class="pre">(K)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'coolwarm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmxeq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">li</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plotly'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.plotting.yrplot_hm" title="Permalink to this definition">#</a></dt>
+<dd><p>Yearly stripes plot.
+Creates a monthly resloved stripes plot for each year in the data.
+The data is plotted as a heatmap showing the Temperature anomaly to the passed reference period
+based on the adjustable quartile value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sr</strong> (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><em>pandas.DataFrame</em></a>) – Input data originating from one ground station</p></li>
+<li><p><strong>ref</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – Reference period to calculate the anomaly.</p></li>
+<li><p><strong>ag</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Reduction function to use. Can be used to calculate
+the temperature anomaly in ‘sum’, ‘min’, ‘max’ or ‘mean’</p></li>
+<li><p><strong>qa</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Quartile to use. Has to be between 0 and 1.</p></li>
+<li><p><strong>cbar_title</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Optional title for the colorbar</p></li>
+<li><p><strong>cmx</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Colorbar scale. Can be any string accepted by the plotting backend.</p></li>
+<li><p><strong>cmxeq</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If True (default), the colorbar range is calculated for
+the full dataset.</p></li>
+<li><p><strong>lang</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Can be either <code class="docutils literal notranslate"><span class="pre">'en'</span></code> or <a href="#id1"><span class="problematic" id="id2">``</span></a>’de’<a href="#id3"><span class="problematic" id="id4">`</span></a>. The language used for axis labels.</p></li>
+<li><p><strong>backend</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Can be either <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or <code class="docutils literal notranslate"><span class="pre">plotly</span></code>.
+The plotting backend to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.climate_projection_parcoords">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">climate_projection_parcoords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">align_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'electric'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'en'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ruins.plotting.climate_projection_parcoords" title="Permalink to this definition">#</a></dt>
+<dd><p>Parallel coordinates plot for climate projections.
+This plot uses each month in the year as a coordinate dimension. By sorting the
+dimensions into the correct order, the cycle of annual temperature aggregates is preserved,
+while the full dataset can easily be compared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><em>pandas.DataFrame</em></a>) – Dataframe with the data to plot. The DataFrame has to be indexed by a
+Datetime Index and does accept more than one column (ground station, RCP scenario or grid cell).</p></li>
+<li><p><strong>fig</strong> (<em>plotly.graph_objects.Figure</em>) – If not None, the given figure will be used to plot the data.
+Note, that subfigures need to use the <code class="docutils literal notranslate"><span class="pre">'domain'</span></code> type.</p></li>
+<li><p><strong>align_range</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – If True (default) each dimension (aka month) will use the same value range, to
+focus the differences between the months. If False, the range will be adapted
+to span from min to max for each dimension, putting more focus on the differences
+between the years (decades).</p></li>
+<li><p><strong>colorscale</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Name identifier of teh colorscale. See plotly to learn about available options.</p></li>
+<li><p><strong>row</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If figure is not None, row and column can be used to plot into the
+correct subplot.</p></li>
+<li><p><strong>col</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – If figure is not None, row and column can be used to plot into the
+correct subplot.</p></li>
+<li><p><strong>lang</strong> (<a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – Can either be <code class="docutils literal notranslate"><span class="pre">'en'</span></code> or <code class="docutils literal notranslate"><span class="pre">'de'</span></code>. As of now, the language does not
+have any effect.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.distribution_plot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">distribution_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">events</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.distribution_plot" title="Permalink to this definition">#</a></dt>
+<dd><p>Concept plot for PDFs of different events.
+This plot illustrates the interdependece of Kngihtian uncertainty
+and risk for a set of events. At least one event has to be passed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>events</strong> (<em>List</em>) – <p>Each event is represented by a dict, that has to contain the following keys:
+outcomes: List[Tuple[float, float]]</p>
+<blockquote>
+<div><p>The mu and std of each outcome for this event</p>
+</div></blockquote>
+<p>Additionally, the following keys are optional:
+dist : str</p>
+<blockquote>
+<div><p>The distribution of the event. Default is ‘norm’.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>coloscale<span class="classifier">str</span></dt><dd><p>The colorscale used to color the events. Default is a
+cycle through [‘Greens’, ‘Reds’, ‘Blues’]</p>
+</dd>
+<dt>name<span class="classifier">str</span></dt><dd><p>Name for this event</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>fig</strong> – Result plot</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.plot_climate_indices">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_climate_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rcps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('rcp26',</span> <span class="pre">'rcp45',</span> <span class="pre">'rcp85')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.plot_climate_indices" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a climate indices plot.
+Refer to <code class="xref py py-func docutils literal notranslate"><span class="pre">ruins.processing.calculate_climate_indices()</span></code> to learn about the structure
+needed for the DataFrame.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.sunburst">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">sunburst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdepth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">700</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.sunburst" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a sunburst plot of all climate models included in the current
+dataset used in RUINS. It will group them by GCM -&gt; RCM -&gt; RCP.
+The size of the sun can be restricted by the maxdepth argument.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.plot_extreme_pdf">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_extreme_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">border_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">BORDERS_COLORS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">border_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">BORDER_NAMES</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">25)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_res</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_res</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_margin_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.plot_extreme_pdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Temperature PDF shift plot.
+This function returns a plotly figure containing a heavily styled plotly PDF plot.
+It is controlled by passing the PDF moment(s) to the plot. If called with only one
+location and scale, the styled PDF is returned.
+If two locations and scales are passed, but both scales are the same, the PDF is
+only shifted by location and the original PDF is sketched. In case the scales differ,
+the new PDF will be correctly annotated.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.pdsi_plot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">pdsi_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'RdBu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.pdsi_plot" title="Permalink to this definition">#</a></dt>
+<dd><p>Heatmap plot for Palmer drought severity index</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.tree_plot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">tree_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">heights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0.3,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.tree_plot" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.variable_plot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">variable_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">climate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">xarray.Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">rcp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rcp85'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'green'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bgcolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lightgreen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.variable_plot" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot one of the climate model predicted variables, grouped by RCP scenario.
+If rcp is None, the grouping will not be applied.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.windpower_distplot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">windpower_distplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showlegend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.windpower_distplot" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot the actions projected to climate models</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.ternary_provision_plot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">ternary_provision_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataManager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../core/index.html#ruins.core.DataManager" title="ruins.core.DataManager"><span class="pre">ruins.core.DataManager</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['e53',</span> <span class="pre">'e115',</span> <span class="pre">'e126']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Cividis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showscale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.ternary_provision_plot" title="Permalink to this definition">#</a></dt>
+<dd><p>Make a ternary plot of the three turbines shares on the axes and the provisioned Windpower as contours</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ruins.plotting.management_scatter_plot">
+<span class="sig-prename descclassname"><span class="pre">ruins.plotting.</span></span><span class="sig-name descname"><span class="pre">management_scatter_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><span class="pre">pandas.DataFrame</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenarios</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.10/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ce'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'up'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">plotly.graph_objects.Figure</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">plotly.graph_objects.Figure</span></span></span><a class="headerlink" href="#ruins.plotting.management_scatter_plot" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              </footer>
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright 2022, Mirko Mälicke.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>

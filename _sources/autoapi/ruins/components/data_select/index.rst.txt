@@ -1,0 +1,89 @@
+:py:mod:`ruins.components.data_select`
+======================================
+
+.. py:module:: ruins.components.data_select
+
+.. autoapi-nested-parse::
+
+   Data Select
+   ===========
+
+   Alex will das dokumentieren....
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.components.data_select._map_wrapper
+   ruins.components.data_select.selected_station_selector
+   ruins.components.data_select.temporal_agg_selector
+   ruins.components.data_select.rcp_selector
+   ruins.components.data_select.data_select
+   ruins.components.data_select.debug_main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.components.data_select._TRANSLATE_EN
+   ruins.components.data_select._TRANSLATE_DE
+   ruins.components.data_select._VIDEO_SOURCES
+
+
+.. py:data:: _TRANSLATE_EN
+   
+
+   
+
+.. py:data:: _TRANSLATE_DE
+   
+
+   
+
+.. py:data:: _VIDEO_SOURCES
+   
+
+   
+
+.. py:function:: _map_wrapper(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, add_caption: bool = True, **kwargs)
+
+
+.. py:function:: selected_station_selector(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, **kwargs)
+
+   Select a station.
+
+
+.. py:function:: temporal_agg_selector(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, **kwargs)
+
+   Select a temporal aggregation.
+
+
+.. py:function:: rcp_selector(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, elements: Union[str, List[str]] = '__rpc__', **kwargs)
+
+   Decide whether to include or exclude climate projects.
+   If climate projections should be included, the user can select one of the projections.
+
+
+.. py:function:: data_select(dataManager: ruins.core.DataManager, config: ruins.core.Config, expander_container=st.sidebar, **kwargs)
+
+   Select a station, a temporal aggregation and if climate projections
+   should be included.
+   If we are either not in story_mode or if all of the above are already
+   selected, new data can be selected in a selectbox in the sidebar
+   (compact_selector()).
+   Otherwise data is selected step by step alongside with explanations.
+
+
+.. py:function:: debug_main(**kwargs)
+
+

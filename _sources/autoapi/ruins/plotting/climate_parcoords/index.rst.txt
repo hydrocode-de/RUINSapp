@@ -1,0 +1,63 @@
+:py:mod:`ruins.plotting.climate_parcoords`
+==========================================
+
+.. py:module:: ruins.plotting.climate_parcoords
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.climate_parcoords.climate_projection_parcoords
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.climate_parcoords.DIMENSIONS
+
+
+.. py:data:: DIMENSIONS
+   
+
+   
+
+.. py:function:: climate_projection_parcoords(data: pandas.DataFrame, fig: plotly.graph_objects.Figure = None, align_range: bool = True, colorscale='electric', row: int = 1, col: int = 1, lang='en')
+
+   Parallel coordinates plot for climate projections.
+   This plot uses each month in the year as a coordinate dimension. By sorting the
+   dimensions into the correct order, the cycle of annual temperature aggregates is preserved,
+   while the full dataset can easily be compared.
+
+   :param data: Dataframe with the data to plot. The DataFrame has to be indexed by a
+                Datetime Index and does accept more than one column (ground station, RCP scenario or grid cell).
+   :type data: pandas.DataFrame
+   :param fig: If not None, the given figure will be used to plot the data.
+               Note, that subfigures need to use the ``'domain'`` type.
+   :type fig: plotly.graph_objects.Figure
+   :param align_range: If True (default) each dimension (aka month) will use the same value range, to
+                       focus the differences between the months. If False, the range will be adapted
+                       to span from min to max for each dimension, putting more focus on the differences
+                       between the years (decades).
+   :type align_range: bool
+   :param colorscale: Name identifier of teh colorscale. See plotly to learn about available options.
+   :type colorscale: str
+   :param row: If figure is not None, row and column can be used to plot into the
+               correct subplot.
+   :type row: int
+   :param col: If figure is not None, row and column can be used to plot into the
+               correct subplot.
+   :type col: int
+   :param lang: Can either be ``'en'`` or ``'de'``. As of now, the language does not
+                have any effect.
+   :type lang: str
+
+

@@ -1,0 +1,34 @@
+:py:mod:`ruins.plotting.windpower`
+==================================
+
+.. py:module:: ruins.plotting.windpower
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   ruins.plotting.windpower.windpower_distplot
+   ruins.plotting.windpower.ternary_provision_plot
+   ruins.plotting.windpower.management_scatter_plot
+
+
+
+.. py:function:: windpower_distplot(actions: List[pandas.DataFrame], names: List[str] = None, fig: plotly.graph_objects.Figure = None, fill: str = None, showlegend: Union[bool, List[bool]] = False, colors: Union[str, List[str]] = None, col: int = 1, row: int = 1) -> plotly.graph_objects.Figure
+
+   Plot the actions projected to climate models
+
+
+.. py:function:: ternary_provision_plot(dataManager: ruins.core.DataManager, filter_: dict = {}, turbines: List[str] = ['e53', 'e115', 'e126'], colorscale: str = 'Cividis', showscale: bool = True) -> plotly.graph_objects.Figure
+
+   Make a ternary plot of the three turbines shares on the axes and the provisioned Windpower as contours
+
+
+.. py:function:: management_scatter_plot(data: pandas.DataFrame = None, scenarios: List[Tuple[float, float, float]] = None, x: str = 'ce', y: str = 'up', fig: plotly.graph_objects.Figure = None) -> plotly.graph_objects.Figure
+
+
