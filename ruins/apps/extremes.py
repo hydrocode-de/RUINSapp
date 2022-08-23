@@ -76,8 +76,8 @@ def user_input_defaults():
     #recharge_vis = "absolute"   # "cumulative" or "absolute"
     
     # default event z.B.:
-    # (wählt Jonas noch aus)
-    
+    time = "2012"
+
     #if time == "2012":
     t1 = datetime.date(2011, 12, 28)
     t2 = datetime.date(2012, 1, 12)
@@ -113,25 +113,15 @@ def user_input_defaults():
 
 def timeslice_observed_data(dataManager: DataManager, t1, t2, slr):
 
-    raw = dataManager['levelknock'].read()
-    weather_1h = dataManager['prec'].read()
+    extremes = dataManager['hydro_krummh'].read()
 
-    # tide data
-    tide = raw['L011_pval'][t1:t2]*1000 + slr
-
-    # hourly recharge data
-    hourly_recharge = weather_1h["Prec"][t1:t2]
-    hourly_recharge = hourly_recharge.rolling("12h").mean() # changed by Jonas
+    hourly_recharge = extremes['Prec'].to_dataframe().rolling("12h").mean()[t1:t2] # changed by Jonas
     
-    # EVEx5 observed
+    tide = extremes['wl_Knock_Outer'].to_dataframe()[t1:t2]
     
-    #EVEx5 = pd.read_csv('//home/lucfr/hydrocode/RUINS_hydropaper-newlayout/streamlit/data/levelLW.csv')
-    EVEx5 = dataManager['levelLW'].read()
-    EVEx5.index = pd.to_datetime(EVEx5.iloc[:,0])
-    EVEx5_lw_pegel_timesliced = (EVEx5['LW_Pegel_Aussen_pval']/100+0.095)[t1:t2]
+    EVEx5_lw_pegel_timesliced = extremes['wl_LW'].to_dataframe()[t1:t2]
     
-    # pump observed
-    pump_capacity_observed = raw['sumI'][t1:t2] / 12.30
+    pump_capacity_observed = extremes['Knock_pump_obs'].to_dataframe()[t1:t2] / 12.30
     
     return tide, hourly_recharge, EVEx5_lw_pegel_timesliced, pump_capacity_observed
 
@@ -139,7 +129,7 @@ def timeslice_observed_data(dataManager: DataManager, t1, t2, slr):
 def create_initial_x_dataset(tide_data, hourly_recharge):
     
     wig = tide_data*0
-    # what is this and why? Unused!
+    # what is this and why? Unused!  # comment Jonas: Experimental option to account for a "Wind Induced Gradient" in the canals, which reduces the effective water flow gradient in the drain_cap model
     
     x = pd.DataFrame.from_dict({'recharge' : hourly_recharge,
                                 'h_tide' : tide_data,
