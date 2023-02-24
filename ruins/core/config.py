@@ -50,7 +50,8 @@ class Config(Mapping):
             'weather': 'weather',
             'climate': 'cordex_krummh',
             'pdsi': 'scPDSI',
-            'wind_timeseries': 'windenergy_timeseries'
+            'wind_timeseries': 'windenergy_timeseries',
+            'CE': 'CEs_PCSE'
             #'climate_coast': 'cordex_coast',
             #'hydro': 'hydro_krummh'
         }
@@ -73,7 +74,8 @@ class Config(Mapping):
             'levelW.csv': dict(index_col=[0], parse_dates=[0]),
             'prec.csv': dict(index_col=[0], parse_dates=[0]),
             'Qknock.csv': dict(index_col=[0], parse_dates=[0]),
-            'scPDSI.csv': dict(index_col=[0])
+            'scPDSI.csv': dict(index_col=[0]),
+            'CEs_PCSE.csv': dict(sep=';', index_col=[0], decimal=',')
         }
         self.sources_args.update(kwargs.get('include_args', {}))
 
