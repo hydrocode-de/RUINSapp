@@ -129,7 +129,9 @@ dmypy.json
 .pyre/
 
 # project specific
+data
 data.zip
 data/*
 data_legacy/*
 original_data.zip
+.DS_Store
