@@ -13,6 +13,25 @@ from ruins.core import build_config, debug_view, DataManager, Config
 from ruins.core.cache import partial_memoize
 from ruins.processing.climate_indices import calculate_climate_indices, INDICES
 
+# @CONRAD: DAS hier füllt die Spalten auf der neuen Homepage
+_TRANSLATE_DE_HOME = dict(
+    introduction="""Der Wetter- und Klimadaten Explorer führ in verschiedene Aspekte ....""",
+    weather_title="Wetterdaten",
+    weather_body="Mehr zu Wetterdaten",
+    climate_title="Klimamodelle",
+    climate_body="Aggregierte Informationen aus Klimamodellen",
+    indices_title="Indices",
+    indices_body="Aggregierte Indices zu zukünftigen Projektionen"
+)
+_TRANSLATE_EN_HOME = dict(
+    introduction="""The weather and climate data explorer guides you through...""",
+    weather_title="Weather data",
+    weather_body="Learn more about our weather data",
+    climate_title="Climate Models",
+    climate_body="Aggregated information from climate models",
+    indices_title="Indices",
+    indices_body="Aggregated indices about predictions"
+)
 
 _TRANSLATE_DE_CLIMATE = dict(
     title="Unser Wetter in der Zukunft",
@@ -379,7 +398,13 @@ def quick_access_buttons(config: Config, container = st.sidebar):
     stage = config.get('quick_access')
 
     # make columns
-    l, r = container.columns(2)
+    #b, l, r = container.columns(3)
+    
+    # add home button
+    go_home = container.button('HOME', use_container_width=True)
+    if go_home:
+        st.session_state.quick_access = 'home'
+        st.experimental_rerun()
 
     # make translations
     if config.lang == 'de':
@@ -393,17 +418,17 @@ def quick_access_buttons(config: Config, container = st.sidebar):
 
     # switch the cases
     if stage == 'climate':
-        go_weather = l.button(lab_weather)
+        go_weather = container.button(lab_weather, use_container_width=True)
         go_climate = False
-        go_idx = r.button(lab_index)
+        go_idx = container.button(lab_index, use_container_width=True)
     elif stage == 'index':
-        go_weather = l.button(lab_weather)
-        go_climate = r.button(lab_climate)
+        go_weather = container.button(lab_weather, use_container_width=True)
+        go_climate = container.button(lab_climate, use_container_width=True)
         go_idx = False
     else:
         go_weather = False
-        go_climate = l.button(lab_climate)
-        go_idx = r.button(lab_index)
+        go_climate = container.button(lab_climate, use_container_width=True)
+        go_idx = container.button(lab_index, use_container_width=True)
 
     # check if the Weather explorer is needed
     if go_weather:
@@ -521,6 +546,63 @@ def transition_page(dataManager: DataManager, config: Config) -> None:
         st.stop()
 
 
+def homepage(config: Config):
+    """
+    Landing page for the weather explorer
+    """
+    # get a translator
+    t = config.translator(de=_TRANSLATE_DE_HOME, en=_TRANSLATE_EN_HOME)
+
+    # add a title 
+    st.title('Weather and Climate explorer')
+    st.markdown(t('introduction'))
+    
+    # add columns to make a quick access
+    left, center, right = st.columns(3)
+
+    # create each of the cards
+    left.markdown(f"### {t('weather_title')}\n{t('weather_body')}")
+    center.markdown(f"### {t('climate_title')}\n{t('climate_body')}")
+    right.markdown(f"### {t('indices_title')}\n{t('indices_body')}")
+
+    # add the buttons
+
+    # go to weather explorer
+    go_weather = left.button('OPEN APP', key="open1")
+    if go_weather:
+        st.session_state.quick_access = 'weather'
+        st.experimental_rerun()
+
+    # go to climate explorer
+    go_climate = center.button('OPEN APP', key="open2")
+    if go_climate:
+        st.session_state.quick_access = 'climate'
+        st.experimental_rerun()
+
+    go_indices = right.button('OPEN APP', key="open3")
+    if go_indices:
+        st.session_state.quick_access = 'index'
+        st.experimental_rerun()
+
+    # Add the more info links
+    st.markdown('<hr style="margin-top: 35px; margin-bottom: 15px">', unsafe_allow_html=True)
+    if config.lang == 'en':
+        lab = "Find more detailed info about some topics here"
+    else:
+        lab = "Detailierte Informationen zu einigen Themen können hier abgerufen werden"
+    
+    with st.expander(lab, expanded=False):
+        go_rcp = st.button('Details on RCP Sceanrios', use_container_width=True)
+        if go_rcp:
+            st.warning('Sorry. Ich funktioniere leider noch nicht')
+            #st.session_state.quick_access = 'transition_climate'
+            #st.experimental_rerun()
+        go_models = st.button('Einordnung aller verwendeten Klimamodelle.', use_container_width=True)
+        if go_models:
+            st.warning('Sorry. Ich funktioniere auch noch nicht.')
+    
+
+
 def main_app(**kwargs):
     """Describe the params in kwargs here
 
@@ -542,9 +624,13 @@ def main_app(**kwargs):
 
     # check if a stage was set
     if not config.has_key('quick_access'):
-        st.session_state.quick_access = 'weather'
+        st.session_state.quick_access = 'home'
     stage = config['quick_access']
 
+    # home page has no quick access
+    if stage == 'home':
+        homepage(config)
+        st.stop()
     # add the skip buttons
     btn_expander = st.sidebar.expander('QUICK ACCESS', expanded=True)
     quick_access_buttons(config, container=btn_expander)
