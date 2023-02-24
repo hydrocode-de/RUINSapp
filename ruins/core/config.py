@@ -10,8 +10,8 @@ from streamlit import session_state
 import streamlit as st
 
 # check if streamlit is running
-if not st._is_running_with_streamlit:
-    session_state = dict()
+#if not st._is_running_with_streamlit:
+#    session_state = dict()
 
 class Config(Mapping):
     """

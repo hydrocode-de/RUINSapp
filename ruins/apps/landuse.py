@@ -130,7 +130,8 @@ def quick_access(config: Config, container=st.sidebar) -> None:
         st.experimental_rerun()
 
 
-@st.experimental_memo
+#@st.experimental_memo
+@st.cache_data
 def cached_pdsi_plot(_data, group_by: List[str] = None, add_tree: bool = True, lang='de'):
     # build the multiindex and group if needed
     if group_by is not None:
@@ -569,12 +570,13 @@ def windpower_story(dataManager: DataManager, config: Config) -> None:
 def main_app(**kwargs):
     """
     """
+#    st.set_page_config(page_title='Land use Explorer', layout='wide')
+
     # build the config and dataManager from kwargs
     url_params = st.experimental_get_query_params()
     config, dataManager = build_config(url_params=url_params, **kwargs)
 
     # set page properties and debug view    
-    st.set_page_config(page_title='Land use Explorer', layout=config.layout)
     debug_view.debug_view(dataManager, config, debug_name='DEBUG - initial state')
 
     if config.get('story_mode', True):

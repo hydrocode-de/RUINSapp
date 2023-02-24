@@ -85,7 +85,7 @@ def upscale_windenergy(turbines: List[Union[str, Tuple[float, int]]], specs: Lis
     #    raise ValueError('The number of turbines and the number of specs must be equal.')
     
     # result container
-    results = np.ones((len(specs) * len(turbines), len(turbnies))) * np.NaN
+    results = np.ones((len(specs) * len(turbines), len(turbines))) * np.NaN
 
     # get the area and MW for each used turbine type
     turbine_dims = [turbine_footprint(turbine) for turbine in turbines]

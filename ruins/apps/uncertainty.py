@@ -224,7 +224,7 @@ def main_app(**kwargs):
     config, dataManager = build_config(url_params=url_params, **kwargs)
 
     # set page config and debug view
-    st.set_page_config(page_title='Uncertainty Explorer', layout=config.layout)
+#    st.set_page_config(page_title='Uncertainty Explorer', layout=config.layout)
     debug_view.debug_view(dataManager, config, debug_name='Initial Application State')
 
     # --------------------------

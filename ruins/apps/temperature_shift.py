@@ -158,7 +158,7 @@ def main_app(**kwargs):
     config, _ = build_config(url_params=url_params, omit_dataManager=True, **kwargs)
 
     # set page properties and debug view
-    st.set_page_config(page_title='Temperature shift', layout=config.layout)
+#    st.set_page_config(page_title='Temperature shift', layout=config.layout)
     debug_view.debug_view(None, config, 'DEBUG - initial state')
 
     # MAIN APP

@@ -75,7 +75,7 @@ def main_app(**kwargs):
     config, dataManager = build_config(url_params=url_params, **kwargs)
 
     # set page properties and debug view    
-    st.set_page_config(page_title='Climate Model Sunburst', layout=config.layout)
+#    st.set_page_config(page_title='Climate Model Sunburst', layout=config.layout)
     debug_view.debug_view(dataManager, config, debug_name='DEBUG - initial state')
 
     # get a translator
